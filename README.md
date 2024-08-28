@@ -3,10 +3,10 @@
 ## Integrantes
 
 |--------|-----|------|
-| **Reynaldo Alexander Couoh Martin** | ![Foto de Reynaldo](https://github.com/ReynaldoCoMa/Proyecto-DAW/blob/main/Assets/Reynaldo.jpeg) |
-| **Mariano** | ![Foto de Mariano](https://github.com/ReynaldoCoMa/Proyecto-DAW/blob/main/Assets/Mariano.jpeg) |
-| **Julio** | ![Foto de Julio](https://github.com/ReynaldoCoMa/Proyecto-DAW/blob/main/Assets/Julio.jpeg) |
-| **Johan** | ![Foto de Johan](https://github.com/ReynaldoCoMa/Proyecto-DAW/blob/main/Assets/Johan.jpeg) |
+| **Reynaldo Alexander Couoh Martin** | <img src="https://github.com/ReynaldoCoMa/Proyecto-DAW/blob/main/Assets/Reynaldo.jpeg"  width="150"/>   |
+| **Mariano** |<img src="https://github.com/ReynaldoCoMa/Proyecto-DAW/blob/main/Assets/Mariano.jpeg"  width="150"/>|
+| **Julio** | <img src="https://github.com/ReynaldoCoMa/Proyecto-DAW/blob/main/Assets/Julio.jpeg"  width="150"/> |
+| **Johan** | <img src="https://github.com/ReynaldoCoMa/Proyecto-DAW/blob/main/Assets/Johan.jpeg"  width="150"/> |
 
 ## Descripción del Proyecto
 
