@@ -1,20 +1,45 @@
+/* Tipografía del proyecto */
+@font-face {
+    font-family: "Tan Pearl";
+    src: url('../fonts/tan-pearl-font/tan-pearl.otf') format('opentype');
+}
+
+@font-face {
+    font-family: "Questrial";
+    src: url('../fonts/questrial-2/Questrial-Regular.ttf') format('truetype');
+}
+
+
 /* Estilos generales */
 body {
     font-family: Arial, sans-serif;
+    line-height: 1.5;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
 }
 
+body h1{
+    font-family: 'Tan Pearl', sans-serif;
+    font-size: small; 
+}
+
+body h2{
+    font-family: 'Tan Pearl', sans-serif;
+    font-size: large; 
+}
+
+
 /* Barra de navegación */
 .navbar {
-    background-color: #001e44;
+    background-color: #597445;
     display: flex;
     justify-content: space-around;
     padding: 15px;
     color: white;
     position: relative;
     z-index: 1;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .navbar a {
@@ -29,15 +54,15 @@ body {
 }
 
 .navbar a.active {
-    background-color: #b2c133;
-    padding: 5px 10px;
-    border-radius: 5px;
+    background-color: #2d4932;
+    padding: 5px 15px;
+    border-radius: 3px;
 }
 
 /* Sección principal */
 .main-section {
     display: flex;
-    padding: 50px;
+    padding: 60px;
     align-items: center;
     justify-content: center;
     position: relative;
@@ -55,12 +80,11 @@ body {
 
 /* Estilo del título */
 .main-text h1 {
-    margin-top: 40px;
+    margin-top: 30px;
     font-size: 2.5em;
     font-weight: bold;
     margin-bottom: 10px;
-    line-height: 1.5;
-    word-spacing: 45px; /* Espacio entre las palabras */
+    line-height: 1.9;
     position: relative;
     padding: 10px; /* Un poco de espacio alrededor del texto */
     width: fit-content; /* Hace que el fondo blanco se ajuste al tamaño del texto */
@@ -76,10 +100,10 @@ body {
 .main-image-container {
     position: absolute;
     top: -75px; /* Ajusta para que sobresalga la navbar */
-    right: 10%; /* Posiciona la forma ovalada a la derecha */
+    right: 5%; /* Posiciona la forma ovalada a la derecha */
     width: 300px;
     height: 450px;
-    background-color: #d4a839;
+    background-color: #39492d;
     border-radius: 100px;
     display: flex;
     flex-direction: column; /* Alinea el contenido en columna (título arriba y imagen abajo) */
@@ -87,6 +111,7 @@ body {
     justify-content: center; /* Centra el contenido verticalmente */
     z-index: 5; /* Asegura que esté frente a la navbar */
     padding: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 /* Estilo del título */
@@ -106,33 +131,41 @@ body {
 .main-image-container img {
     width: 200px;
     height: auto;
-    margin-bottom: 20px; /* Ajusta la distancia entre el texto y la imagen */
+    margin-top: 50px;
+    margin-bottom: 10px; /* Ajusta la distancia entre el texto y la imagen */
     z-index: 6;
 }
 
 .new-header {
     display: flex;
     justify-content: space-around;
-    background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0');
+    background: url("../images/noticiasBG2.jpg");
+    color:#f4f4f4;
     margin-top: 50px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
+
+
+
+
 
 /* Sección de noticias */
 .news-section {
     display: flex;
     justify-content: space-around;
-    padding: 10px;
+    padding: 60px;
     background-color: #f4f4f4;
 }
 
 .news-card {
     width: 23%;
-    background-color: #001e44;
-    color: white;
-    padding: 15px;
+    background-color: white; 
+    color: black;
+    padding: 15px 15px;
     border-radius: 5px;
     text-align: center;
     margin: 10px; /* Espacio alrededor de cada tarjeta */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .news-card img {
@@ -173,7 +206,7 @@ body {
 
 /* Footer */
 .footer {
-    background-color: #001e44;
+    background-color:#597445;
     display: flex;
     justify-content: space-around;
     padding: 15px;
@@ -184,4 +217,313 @@ body {
 .footer-content {
     max-width: 800px;
     text-align: center;
+    line-height: .8;
 }
+
+/* Catalogo Plantas*/
+
+/* Estilo para la sección del catálogo */
+.catalogo-container {
+    display: flex;
+    padding: 20px;
+}
+
+/* Panel de filtros en el costado izquierdo */
+.filter-panel {
+    width: 300px;
+    padding: 20px;
+    background-color: white; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+    border-radius: 5px;
+}
+
+.filter-panel h2 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    color:#39492d ;
+}
+
+.filter-option {
+    margin-bottom: 25px;
+}
+
+
+/* Estilo para el catálogo de plantas */
+.plant-catalog {
+    flex: 1;
+    margin-left: 30px;
+}
+
+.plant-catalog h1 {
+    color:#39492d;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+
+}
+
+.plant-catalog p {
+    font-size: 1rem;
+    margin-bottom: 30px;
+}
+
+.plant-catalog a{
+    color: #39492d;
+}
+
+.plant-catalog a:hover{
+    color: white; 
+    text-decoration:none;
+    background-color:#39492d;
+    padding: 5px 15px;
+    border-radius: 3px;
+}
+
+.plant-catalog img{
+    width: 200px;
+    height: auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease;
+}
+
+.plant-catalog img:hover{
+    transform: scale(1.1);
+
+}
+
+/* Estilo para las tarjetas de plantas */
+.plant-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+
+/* Formulario Adopción */
+    /* Estilo general del formulario */
+    .form-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        background-color: #f7f7f7;
+        min-height: 100vh;
+    }
+
+    .adoption-form {
+        background-color: white;
+        padding: 30px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .adoption-form h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        text-align: center;
+        color: #39492d;
+    }
+
+    .adoption-form p {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+
+    .form-field {
+        margin-bottom: 20px;
+    }
+
+    .form-field label {
+        display: block;
+        font-size: 1rem;
+        margin-bottom: 5px;
+    }
+
+    .form-field input, .form-field select {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-top: 5px;
+    }
+
+    .form-field input[type="submit"] {
+        background-color: #39492d;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 1.1rem;
+        padding: 15px;
+        width: 100%;
+        border-radius: 5px;
+    }
+
+    .form-field input[type="submit"]:hover {
+        background-color: #1f4d1a;
+    }
+
+    .form-field textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        resize: vertical;
+    }
+
+    /*Descripción platas (Fichas)*/
+     /* Detalles de la planta */
+     .plant-detail-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 20px;
+        margin: 20px;
+        background-color: white;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+    }
+
+    /* Información de la planta */
+    .plant-info {
+        flex: 3; /* Se aumenta el espacio para la información */
+        padding: 20px;
+        background-color: #f0f0f0;
+        border-radius: 10px;
+        margin-right: 20px; /* Espacio entre la información y la imagen */
+    }
+
+    .plant-info h1 {
+        font-size: 2rem;
+        color: #39492d; /* Verde */
+        margin-bottom: 10px;
+    }
+
+    .plant-info p {
+        font-size: 1rem;
+        color: #333;
+        line-height: 1.6;
+    }
+
+    /* Subtítulos con fondo verde y texto blanco */
+    .plant-info strong {
+        background-color: #c5cfbb ; /* Verde */
+        color: #39492d;
+        padding: 5px;
+        border-radius: 2px;
+        margin-right: 5px;
+    }
+
+    /* Estilos para las imágenes */
+    .plant-image {
+        flex: 2; /* Se reduce el espacio para la imagen */
+        padding: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    /* Galería de imágenes (slider) */
+    .image-slider {
+        width: 100%;
+        max-width: 500px;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .image-slider img {
+        width: 100%;
+        height: auto;
+        border-radius: 15px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        display: none;
+    }
+
+    .image-slider img.active {
+        display: block;
+    }
+
+    /* Estilos para los controles del slider */
+    .slider-controls {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 10px;
+        transform: translateY(-50%);
+    }
+
+    .slider-controls button {
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    .slider-controls button:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    /* Pagína de adopción*/
+    .adoption-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 60px;
+        background-color: #f4f4f4;
+    }
+
+    .adoption-card {
+        width: 23%;
+        background-color: white; 
+        color: black;
+        padding: 15px;
+        border-radius: 5px;
+        text-align: center;
+        margin: 10px; /* Espacio alrededor de cada tarjeta */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        transition: transform 0.5s ease;
+    }
+
+    .adoption-card:hover{
+        transform: scale(1.1); 
+    }
+    
+    .adoption-card img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+        margin-bottom: 10px;
+    }
+    
+    .adoption-card h2{
+        color:#39492d; 
+    }
+    
+    .adoption-card p {
+        font-size: 0.9em;
+    }
+
+    .adoption-card a{
+        margin-top: 15px;
+        text-decoration: none;
+    }
+
+    .adoption-card a:hover{
+        text-decoration: underline;
+        color: white; 
+    }
+
+    .adoption-card strong{
+        background-color:#2d4932 ; 
+        color: white;
+        padding: 5px 30px;
+        border-radius: 2px;
+        margin-right: 5px;
+    }
