@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivero UADY - Catálogo de Plantas</title>
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <style>
+        /* Estilo para la sección del catálogo */
+        .catalogo-container {
+            display: flex;
+            padding: 20px;
+        }
+
+        /* Panel de filtros en el costado izquierdo */
+        .filter-panel {
+            width: 300px;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-right: 20px;
+        }
+
+        .filter-panel h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .filter-option {
+            margin-bottom: 15px;
+        }
+
+
+        /* Estilo para el catálogo de plantas */
+        .plant-catalog {
+            flex: 1;
+        }
+
+        .plant-catalog h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .plant-catalog p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        /* Estilo para las tarjetas de plantas */
+        .plant-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        
+    </style>
+</head>
+<body>
+
+    <!-- Barra de navegación -->
+    <div class="navbar">
+        <span><strong>Vivero UADY</strong></span>
+        <a href="index.html">Inicio</a>
+        <a href="catalogoPlantas.html" class="active">Plantas</a>
+        <a href="formularioAdopcion.html">Adopta una planta</a>
+        <!-- Campo de búsqueda -->
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Buscar...">
+            <button onclick="searchFunction()">Buscar</button>
+        </div>
+    </div>
+
+    <!-- Sección principal para el catálogo de plantas -->
+    <div class="catalogo-container">
+        <!-- Panel de filtros en el costado izquierdo -->
+        <div class="filter-panel">
+            <h2>Filtrar por:</h2>
+
+            <!-- Filtro por nombre -->
+            <div class="filter-option">
+                <label for="search-name">Buscar por nombre:</label>
+                <input type="text" id="search-name" placeholder="Ej. Planta 1">
+            </div>
+
+            <!-- Filtro por tipo de planta -->
+            <div class="filter-option">
+                <label for="plant-type">Tipo de planta:</label>
+                <select id="plant-type">
+                    <option value="todas">Todas</option>
+                    <option value="interior">Interior</option>
+                    <option value="exterior">Exterior</option>
+                    <option value="jardin">Jardín</option>
+                </select>
+            </div>
+
+            <!-- Filtro por categoría -->
+            <div class="filter-option">
+                <label for="category">Categoría:</label>
+                <select id="category">
+                    <option value="todas">Todas</option>
+                    <option value="flor">Flores</option>
+                    <option value="arbol">Árboles</option>
+                    <option value="suculenta">Suculentas</option>
+                    <option value="medicinal">Medicinales</option>
+                </select>
+            </div>
+
+            <!-- Filtro por disponibilidad -->
+            <div class="filter-option">
+                <label for="availability">Disponibilidad:</label>
+                <select id="availability">
+                    <option value="todos">Todos</option>
+                    <option value="disponible">Disponible</option>
+                    <option value="agotado">Agotado</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Catálogo de plantas -->
+        <div class="plant-catalog">
+            <h1>Catálogo de Plantas</h1>
+            <p>Descubre la variedad de plantas que tenemos disponibles en nuestro vivero. Elige la que más te guste y aprende más sobre ella.</p>
+
+            <div class="plant-list">
+                <!-- Tarjeta de Planta 1 -->
+                <div class="plant-card">
+                    <img src="https://via.placeholder.com/200" alt="Planta 1">
+                    <h3>Planta 1 - Nombre</h3>
+                    <p>Descripción breve de la planta 1. Esta planta es ideal para interiores y se adapta bien a la luz moderada.</p>
+                    <a href="descripcionPlanta.html">Más información</a>
+                </div>
+
+                <!-- Tarjeta de Planta 2 -->
+                <div class="plant-card">
+                    <img src="https://via.placeholder.com/200" alt="Planta 2">
+                    <h3>Planta 2 - Nombre</h3>
+                    <p>Descripción breve de la planta 2. Perfecta para jardines exteriores, resistente al sol y a la sequía.</p>
+                    <a href="descripcionPlanta.html">Más información</a>
+                </div>
+
+                <!-- Tarjeta de Planta 3 -->
+                <div class="plant-card">
+                    <img src="https://via.placeholder.com/200" alt="Planta 3">
+                    <h3>Planta 3 - Nombre</h3>
+                    <p>Descripción breve de la planta 3. Es ideal para el hogar, fácil de cuidar y purifica el aire.</p>
+                    <a href="descripcionPlanta.html">Más información</a>
+                </div>
+
+                <!-- Tarjeta de Planta 4 -->
+                <div class="plant-card">
+                    <img src="https://via.placeholder.com/200" alt="Planta 4">
+                    <h3>Planta 4 - Nombre</h3>
+                    <p>Descripción breve de la planta 4. Adaptada para climas cálidos, se puede plantar en exteriores o interiores con buena luz.</p>
+                    <a href="descripcionPlanta.html">Más información</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Universidad Autónoma de Yucatán</p>
+            <p>©Todos los Derechos Reservados, UADY 2024</p>
+            <p>Síguenos en nuestras redes sociales</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com" target="_blank">
+                    <img src="facebook-icon.png" alt="Facebook" class="social-icon">
+                </a>
+                <a href="https://www.twitter.com" target="_blank">
+                    <img src="twitter-icon.png" alt="Twitter" class="social-icon">
+                </a>
+                <a href="https://www.instagram.com" target="_blank">
+                    <img src="instagram-icon.png" alt="Instagram" class="social-icon">
+                </a>
+                <a href="https://www.linkedin.com" target="_blank">
+                    <img src="linkedin-icon.png" alt="LinkedIn" class="social-icon">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

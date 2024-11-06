@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vivero UADY - Adopción de Planta</title>
+    <link rel="stylesheet" href="../css/styles.css">
+
+    <style>
+        /* Estilo general del formulario */
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            background-color: #f7f7f7;
+            min-height: 100vh;
+        }
+
+        .adoption-form {
+            background-color: white;
+            padding: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .adoption-form h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #2C6E2F;
+        }
+
+        .adoption-form p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+        }
+
+        .form-field {
+            margin-bottom: 20px;
+        }
+
+        .form-field label {
+            display: block;
+            font-size: 1rem;
+            margin-bottom: 5px;
+        }
+
+        .form-field input, .form-field select {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+
+        .form-field input[type="submit"] {
+            background-color: #2C6E2F;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            padding: 15px;
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .form-field input[type="submit"]:hover {
+            background-color: #1f4d1a;
+        }
+
+        .form-field textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: vertical;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Barra de navegación -->
+    <div class="navbar">
+        <span><strong>Vivero UADY</strong></span>
+        <a href="index.html">Inicio</a>
+        <a href="catalogoPlantas.html">Plantas</a>
+        <a href="formularioAdopcion.html" class="active">Adopta una planta</a>
+        <!-- Campo de búsqueda -->
+        <div class="search-container">
+            <input type="text" id="search" placeholder="Buscar...">
+            <button onclick="searchFunction()">Buscar</button>
+        </div>
+    </div>
+
+    <!-- Sección del formulario de adopción de planta -->
+    <div class="form-container">
+        <div class="adoption-form">
+            <h1>Formulario de Adopción</h1>
+            <p>Rellena este formulario para adoptar una planta del vivero.</p>
+            <form action="#" method="post">
+                <!-- Campo para el nombre -->
+                <div class="form-field">
+                    <label for="nombre">Nombre Completo:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+
+                <!-- Campo para el correo -->
+                <div class="form-field">
+                    <label for="email">Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <!-- Campo para seleccionar la planta -->
+                <div class="form-field">
+                    <label for="planta">Planta Seleccionada:</label>
+                    <select id="planta" name="planta" required>
+                        <option value="planta1">Planta 1 - Nombre</option>
+                        <option value="planta2">Planta 2 - Nombre</option>
+                        <option value="planta3">Planta 3 - Nombre</option>
+                        <option value="planta4">Planta 4 - Nombre</option>
+                    </select>
+                </div>
+
+                <!-- Campo para la dirección -->
+                <div class="form-field">
+                    <label for="direccion">Dirección de Entrega:</label>
+                    <textarea id="direccion" name="direccion" rows="4" required></textarea>
+                </div>
+
+                <!-- Campo para fecha de adopción -->
+                <div class="form-field">
+                    <label for="fecha">Fecha de Adopción:</label>
+                    <input type="date" id="fecha" name="fecha" required>
+                </div>
+
+                <!-- Botón de envío -->
+                <div class="form-field">
+                    <input type="submit" value="Adoptar Planta">
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>Universidad Autónoma de Yucatán</p>
+            <p>©Todos los Derechos Reservados, UADY 2024</p>
+            <p>Síguenos en nuestras redes sociales</p>
+            <div class="social-links">
+                <a href="https://www.facebook.com" target="_blank">
+                    <img src="facebook-icon.png" alt="Facebook" class="social-icon">
+                </a>
+                <a href="https://www.twitter.com" target="_blank">
+                    <img src="twitter-icon.png" alt="Twitter" class="social-icon">
+                </a>
+                <a href="https://www.instagram.com" target="_blank">
+                    <img src="instagram-icon.png" alt="Instagram" class="social-icon">
+                </a>
+                <a href="https://www.linkedin.com" target="_blank">
+                    <img src="linkedin-icon.png" alt="LinkedIn" class="social-icon">
+                </a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
