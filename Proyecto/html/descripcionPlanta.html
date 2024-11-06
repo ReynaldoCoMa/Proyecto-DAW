@@ -5,104 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vivero UADY - Descripción de Planta</title>
     <link rel="stylesheet" href="../css/styles.css">
+    <link rel="icon" href="../images/viverologo.svg">
 
-    <style>
-        /* Detalles de la planta */
-        .plant-detail-container {
-            display: flex;
-            justify-content: flex-start;
-            align-items: flex-start;
-            padding: 20px;
-            margin: 20px;
-            background-color: white;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-        }
-
-        /* Información de la planta */
-        .plant-info {
-            flex: 3; /* Se aumenta el espacio para la información */
-            padding: 20px;
-            background-color: #f0f0f0;
-            border-radius: 10px;
-            margin-right: 20px; /* Espacio entre la información y la imagen */
-        }
-
-        .plant-info h1 {
-            font-size: 2rem;
-            color: #2C6E2F; /* Verde */
-            margin-bottom: 10px;
-        }
-
-        .plant-info p {
-            font-size: 1rem;
-            color: #333;
-            line-height: 1.6;
-        }
-
-        /* Subtítulos con fondo verde y texto blanco */
-        .plant-info strong {
-            background-color: #2C6E2F; /* Verde */
-            color: white;
-            padding: 5px;
-            border-radius: 5px;
-            margin-right: 5px;
-        }
-
-        /* Estilos para las imágenes */
-        .plant-image {
-            flex: 2; /* Se reduce el espacio para la imagen */
-            padding: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        /* Galería de imágenes (slider) */
-        .image-slider {
-            width: 100%;
-            max-width: 500px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .image-slider img {
-            width: 100%;
-            height: auto;
-            border-radius: 15px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-            display: none;
-        }
-
-        .image-slider img.active {
-            display: block;
-        }
-
-        /* Estilos para los controles del slider */
-        .slider-controls {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            display: flex;
-            justify-content: space-between;
-            padding: 0 10px;
-            transform: translateY(-50%);
-        }
-
-        .slider-controls button {
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-        }
-
-        .slider-controls button:hover {
-            background-color: rgba(0, 0, 0, 0.7);
-        }
-
-    </style>
 </head>
 <body>
 
@@ -111,7 +15,7 @@
         <span><strong>Vivero UADY</strong></span>
         <a href="index.html">Inicio</a>
         <a href="catalogoPlantas.html" class="active">Plantas</a>
-        <a href="formularioAdopcion.html">Adopta una planta</a>
+        <a href="adoptar.html">Adopta una planta</a>
         <!-- Campo de búsqueda -->
         <div class="search-container">
             <input type="text" id="search" placeholder="Buscar...">
