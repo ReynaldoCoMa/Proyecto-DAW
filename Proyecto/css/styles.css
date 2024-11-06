@@ -1,0 +1,187 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+/* Barra de navegación */
+.navbar {
+    background-color: #001e44;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    color: white;
+    position: relative;
+    z-index: 1;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 0 10px;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+.navbar a.active {
+    background-color: #b2c133;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Sección principal */
+.main-section {
+    display: flex;
+    padding: 50px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    margin-top: -70px; /* Permite que la forma ovalada sobresalga */
+}
+
+/* Título ajustado */
+.main-text {
+    max-width: 600px;
+    position: relative;
+    z-index: 2;
+    margin-right: 200px; /* Espacio entre el texto y la imagen */
+}
+
+/* Estilo del título */
+.main-text h1 {
+    margin-top: 40px;
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    word-spacing: 45px; /* Espacio entre las palabras */
+    position: relative;
+    padding: 10px; /* Un poco de espacio alrededor del texto */
+    width: fit-content; /* Hace que el fondo blanco se ajuste al tamaño del texto */
+}
+
+/* Descripción del texto */
+.main-text p {
+    font-size: 1em;
+    line-height: 1.6;
+}
+
+/* Fondo ovalado detrás de la imagen */
+.main-image-container {
+    position: absolute;
+    top: -75px; /* Ajusta para que sobresalga la navbar */
+    right: 10%; /* Posiciona la forma ovalada a la derecha */
+    width: 300px;
+    height: 450px;
+    background-color: #d4a839;
+    border-radius: 100px;
+    display: flex;
+    flex-direction: column; /* Alinea el contenido en columna (título arriba y imagen abajo) */
+    align-items: center; /* Centra el contenido horizontalmente */
+    justify-content: center; /* Centra el contenido verticalmente */
+    z-index: 5; /* Asegura que esté frente a la navbar */
+    padding: 10px;
+}
+
+/* Estilo del título */
+.main-image-container h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    word-spacing: 40px; /* Espacio entre las palabras */
+    margin-top: 170px;
+    text-align: center;
+    color: white;
+    z-index: 6; /* Asegura que el texto esté por encima de la imagen */
+}
+
+/* Estilo de la imagen */
+.main-image-container img {
+    width: 200px;
+    height: auto;
+    margin-bottom: 20px; /* Ajusta la distancia entre el texto y la imagen */
+    z-index: 6;
+}
+
+.new-header {
+    display: flex;
+    justify-content: space-around;
+    background: url('https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0');
+    margin-top: 50px;
+}
+
+/* Sección de noticias */
+.news-section {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+    background-color: #f4f4f4;
+}
+
+.news-card {
+    width: 23%;
+    background-color: #001e44;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+    margin: 10px; /* Espacio alrededor de cada tarjeta */
+}
+
+.news-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.news-card p {
+    font-size: 0.9em;
+}
+
+/* Estilo para la sección de Ubicación y Contacto */
+.contact-location-section {
+    padding: 50px;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+.contact-location-section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #001e44;
+}
+
+.contact-info {
+    margin-bottom: 30px;
+    font-size: 1.1em;
+}
+
+.location-map iframe {
+    width: 100%;
+    max-width: 800px;
+    height: 400px;
+    border: none;
+}
+
+/* Footer */
+.footer {
+    background-color: #001e44;
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    color: white;
+    position: relative;
+}
+
+.footer-content {
+    max-width: 800px;
+    text-align: center;
+}
