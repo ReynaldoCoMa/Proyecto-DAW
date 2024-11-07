@@ -9,6 +9,10 @@
     src: url('../fonts/questrial-2/Questrial-Regular.ttf') format('truetype');
 }
 
+.hamburger-menu {
+    display: none;
+}
+
 
 /* Estilos generales */
 body {
