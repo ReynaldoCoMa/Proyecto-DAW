@@ -32,9 +32,9 @@
     <!-- Sección del formulario de adopción de planta -->
     <div class="form-container">
         <div class="adoption-form">
-            <h1>Formulario de Adopción</h1>
-            <p>Rellena este formulario para adoptar una planta del vivero.</p>
-            <form action="#" method="post">
+            <h1>¡Ya casi es tuya!</h1>
+            <p>Completa el formulario para adoptar una planta del vivero.</p>
+            <form action="#" method="post" id="adoptForm">
                 <!-- Campo para el nombre -->
                 <div class="form-field">
                     <label for="nombre">Nombre Completo:</label>
@@ -50,24 +50,13 @@
                 <!-- Campo para seleccionar la planta -->
                 <div class="form-field">
                     <label for="planta">Planta Seleccionada:</label>
-                    <select id="planta" name="planta" required>
-                        <option value="planta1">Planta 1 - Nombre</option>
-                        <option value="planta2">Planta 2 - Nombre</option>
-                        <option value="planta3">Planta 3 - Nombre</option>
-                        <option value="planta4">Planta 4 - Nombre</option>
-                    </select>
+                    <input type="text" id="planta" name="planta" required disabled="true">
                 </div>
 
                 <!-- Campo para la dirección -->
                 <div class="form-field">
                     <label for="direccion">Dirección de Entrega:</label>
-                    <textarea id="direccion" name="direccion" rows="4" required></textarea>
-                </div>
-
-                <!-- Campo para fecha de adopción -->
-                <div class="form-field">
-                    <label for="fecha">Fecha de Adopción:</label>
-                    <input type="date" id="fecha" name="fecha" required>
+                    <input type="text" id="direccion" name="direccion" required>
                 </div>
 
                 <!-- Botón de envío -->
@@ -105,6 +94,8 @@
             </div>
         </div>
     </footer>
-
+    <script src="../scripts/ponerNombrePlantaFormAdoptar.js"></script>
+    
+    <script src="../scripts/validarAdoptar.js"></script>
 </body>
 </html>
