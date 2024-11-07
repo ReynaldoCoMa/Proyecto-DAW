@@ -21,7 +21,7 @@ body {
     background-color: #f4f4f4;
 }
 
-p{
+p, label{
   font-family: "Lato", sans-serif;
   font-weight: 400;
   font-style: normal
