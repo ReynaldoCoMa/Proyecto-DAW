@@ -663,3 +663,39 @@ nav ul li.nav-item:hover{
         border-radius: 2px;
         margin-right: 5px;
     }
+
+    /* Estilos para la barra de búsqueda */
+    .search-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 5%;
+    }
+
+    .search-input {
+        width: 60%;
+        padding: 10px 15px;
+        font-size: 16px;
+        border: 2px solid #597445; /* Color del borde en tono verde */
+        border-radius: 5px 0 0 5px;
+        outline: none;
+    }
+
+    .search-button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #597445; /* Fondo verde */
+        color: white;
+        border: none;
+        border-radius: 0 5px 5px 0;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .search-button:hover {
+        background-color: #496336; /* Color más oscuro al pasar el cursor */
+    }
+
+    .search-input::placeholder {
+        color: #aaa;
+        font-style: italic;
+    }
