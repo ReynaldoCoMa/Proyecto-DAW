@@ -392,6 +392,16 @@ nav ul li.nav-item:hover{
 
 /* Media query para pantallas pequeñas */
 @media (max-width: 600px) {
+
+    nav ul li.logo a img{
+        display: none;
+    }
+
+    nav ul li a {
+        background-color: #597445;
+    }
+
+    
     .footer-content {
         flex-direction: column; /* Apila logo y texto en pantallas pequeñas */
         align-items: center; /* Centra el contenido en columna */
