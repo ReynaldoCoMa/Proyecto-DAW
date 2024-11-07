@@ -10,10 +10,8 @@
 }
 
 
-
-#map {
-    width: 100%;
-    height: 300px;
+.hamburger-menu {
+    display: none;
 }
 
 /* Estilos generales */
@@ -359,6 +357,29 @@ nav ul li.nav-item:hover{
 
     .social-links {
         margin-top: 10px;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Ajusta según el tamaño de tu barra de navegación */
+        right: 0;
+        background-color: #ffffff; /* Cambia el color si es necesario */
+        width: 100%;
+        z-index: 100;
+    }
+    
+    .hamburger-menu {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .show {
+        display: flex;
     }
 }
 
