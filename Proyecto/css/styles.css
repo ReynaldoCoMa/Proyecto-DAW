@@ -24,6 +24,11 @@ p, label{
   font-style: normal
 }
 
+label{
+    color: #597445;
+    font-weight: 600;
+}
+
 h1{
     font-family: "DM Serif Display", serif;
   font-weight: 400;
@@ -402,6 +407,29 @@ nav ul li.nav-item:hover{
     .social-links {
         margin-top: 10px;
     }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px; /* Ajusta según el tamaño de tu barra de navegación */
+        right: 0;
+        background-color: #ffffff; /* Cambia el color si es necesario */
+        width: 100%;
+        z-index: 100;
+    }
+    
+    .hamburger-menu {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .show {
+        display: flex;
+    }
 }
 
 
@@ -598,7 +626,7 @@ nav ul li.nav-item:hover{
     }
 
     .form-field input[type="submit"] {
-        background-color: #39492d;
+        background-color: #597445;
         color: white;
         border: none;
         cursor: pointer;
