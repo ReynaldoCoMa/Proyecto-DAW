@@ -101,7 +101,8 @@ ul li.logo{
 }
 
 nav ul li.logo a img{
-    height: 70px;
+    height: 80px;
+    width: 100%;
     display: block;
 }
 
@@ -117,7 +118,7 @@ nav ul li.nav-item a{
 }
 
 nav ul li.nav-item{
-    height: 70px;
+    height: 80px;
 }
 
 .active{
@@ -362,10 +363,11 @@ nav ul li.nav-item:hover{
 }
 
 .plant-catalog img{
-    width: 200px;
+    width: 100%;
     height: auto;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     transition: transform 0.5s ease;
+    object-fit: cover;
 }
 
 .plant-catalog img:hover{
