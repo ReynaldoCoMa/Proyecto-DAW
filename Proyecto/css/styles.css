@@ -723,13 +723,31 @@ nav ul li.nav-item:hover{
         overflow: hidden;
     }
 
+    /* Estilos generales para las imágenes del slider */
     .image-slider img {
         width: 100%;
-        height: auto;
+        height: 450px;
         border-radius: 15px;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-        display: none;
+        display: none; /* Solo la imagen con la clase "active" se mostrará */
     }
+
+    @media (max-width: 870px) {
+        .plant-detail-container {
+            flex-direction: column; /* Cambia el layout a vertical */
+        }
+    
+        .plant-info {
+            margin-right: 0; /* Elimina el margen derecho para ajustar el layout vertical */
+            margin-bottom: 20px; /* Añade un margen inferior para separar la descripción de la imagen */
+        }
+    
+        .plant-image {
+            width: 100%; /* Asegura que la imagen ocupe todo el ancho disponible en pantallas pequeñas */
+            padding: 0; /* Opcional: ajusta el padding si es necesario */
+        }
+    }
+    
 
     .image-slider img.active {
         display: block;
