@@ -373,6 +373,10 @@ nav ul li.nav-item:hover{
     border-radius: 5px;
 }
 
+.filter-panel:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);  /* Sombra más profunda al pasar el ratón */
+}
+
 .filter-panel h2 {
     font-size: 1.8rem;
     margin-bottom: 20px;
@@ -383,6 +387,36 @@ nav ul li.nav-item:hover{
     margin-bottom: 25px;
 }
 
+/* Efecto de focus en inputs y selects */
+.filter-option input:focus,
+.filter-option select:focus {
+    border-color: #4C6A4F;  /* Bordes verdes al hacer focus */
+    background-color: #e9f4e7;  /* Fondo más claro al hacer focus */
+    outline: none;  /* Elimina el outline predeterminado */
+}
+
+/* Estilo de las etiquetas de filtros */
+.filter-option label {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+    color: #39492d;  /* Color gris oscuro */
+    font-weight: 500;
+}
+
+/* Botón de filtro */
+.filter-button {
+    display: block;
+    font-family: 'Lovelo', sans-serif;
+    width: 50%;
+    padding: 8px;
+    font-size: 1rem;
+    background-color: #39492d;;  /* Fondo verde */
+    color: white;
+    border: none;
+    border-radius: 10px;
+    margin: 50px auto; /* Centra el botón */
+}
 
 /* Estilo para el catálogo de plantas */
 .plant-catalog {
