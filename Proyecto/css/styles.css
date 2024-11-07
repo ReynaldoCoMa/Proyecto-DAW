@@ -9,6 +9,12 @@
     src: url('../fonts/questrial-2/Questrial-Regular.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: "Lovelo"; 
+    src: url(../fonts/Lovelo/Lovelo_Black.otf) format('opentype'); 
+}
+
+
 
 /* Estilos generales */
 body {
@@ -20,12 +26,13 @@ body {
 }
 
 body h1{
-    font-family: 'Tan Pearl', sans-serif;
+    font-family: 'Lovelo', sans-serif;
     font-size: small; 
+    color:#39492d;
 }
 
 body h2{
-    font-family: 'Tan Pearl', sans-serif;
+    font-family: 'Lovelo', sans-serif;
     font-size: large; 
 }
 
@@ -54,7 +61,7 @@ body h2{
 }
 
 .navbar a.active {
-    background-color: #2d4932;
+    background-color: #39492d;
     padding: 5px 15px;
     border-radius: 3px;
 }
@@ -84,7 +91,7 @@ body h2{
     font-size: 2.5em;
     font-weight: bold;
     margin-bottom: 10px;
-    line-height: 1.9;
+    line-height: 1.5;
     position: relative;
     padding: 10px; /* Un poco de espacio alrededor del texto */
     width: fit-content; /* Hace que el fondo blanco se ajuste al tamaño del texto */
@@ -139,10 +146,10 @@ body h2{
 .new-header {
     display: flex;
     justify-content: space-around;
-    background: url("../images/noticiasBG2.jpg");
+    background-color:#39492d;
     color:#f4f4f4;
     margin-top: 50px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.6);
 }
 
 
