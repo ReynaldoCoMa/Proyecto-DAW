@@ -289,19 +289,71 @@ nav ul li.nav-item:hover{
 
 /* Footer */
 .footer {
-    background-color:#597445;
-    display: flex;
-    justify-content: space-around;
-    padding: 15px;
+    background-color: #597445;
+    padding: 20px;
     color: white;
-    position: relative;
+    display: flex;
+    justify-content: center; /* Centra el contenido del footer horizontalmente */
 }
 
 .footer-content {
+    display: flex;
+    align-items: center; /* Alinea el logo y el texto verticalmente */
+    justify-content: center; /* Centra el logo y el texto en el footer */
     max-width: 800px;
-    text-align: center;
-    line-height: .8;
+    width: 100%;
+    gap: 20px; /* Espacio entre el logo y el texto */
+    text-align: left;
 }
+
+.footer-logo img {
+    width: 150px;
+    height: 100px;
+    border-radius: 50%; /* Forma circular */
+}
+
+.footer-text {
+    text-align: left;
+    line-height: 1.8;
+}
+
+.footer-text p {
+    margin: 5px 0;
+}
+
+.social-links {
+    margin-top: 10px;
+}
+
+.social-icon {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 600px) {
+    .footer-content {
+        flex-direction: column; /* Apila logo y texto en pantallas pequeñas */
+        align-items: center; /* Centra el contenido en columna */
+        text-align: center;
+    }
+
+    .footer-logo img {
+        width: 80px; /* Tamaño reducido del logo para pantallas pequeñas */
+        height: 80px;
+        margin-bottom: 10px;
+    }
+
+    .footer-text {
+        text-align: center; /* Centra el texto en pantallas pequeñas */
+    }
+
+    .social-links {
+        margin-top: 10px;
+    }
+}
+
 
 /* Catalogo Plantas*/
 
