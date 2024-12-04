@@ -47,7 +47,7 @@ if ($id_planta > 0) {
                 <li class="logo"><a href="index.html"><img src="../images/logoviverouady.svg" alt="logo vivero uady"></a></li>
                 <li class="nav-item"><a href="index.html">Inicio</a></li>
                 <li class="nav-item active"><a href="catalogoPlantas.php">Plantas</a></li>
-                <li class="nav-item"><a href="adoptar.html">Adopta una planta</a></li>
+                <li class="nav-item"><a href="adoptar.php">Adopta una planta</a></li>
                 <li class="nav-item"><a href="acceder.html">Ingresar</a></li>
             </ul>
         </div>
