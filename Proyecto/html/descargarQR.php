@@ -1,5 +1,5 @@
 <?php
-require_once '../php/db_connection.php';  // Incluye el archivo de conexión a la base de datos
+require_once '../utilsDB/db_connection.php';  // Incluye el archivo de conexión a la base de datos
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $id_planta = $_POST['id_planta'];

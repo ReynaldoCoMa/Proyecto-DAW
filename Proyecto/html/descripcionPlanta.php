@@ -1,6 +1,6 @@
 <?php
 // Conexión a la base de datos
-include_once '../php/db_connection.php';
+include_once '../utilsDB/db_connection.php';
 
 // Obtener el id de la planta desde la URL
 $id_planta = isset($_GET['id']) ? intval($_GET['id']) : 0; // Usamos intval para evitar problemas con inyección de SQL

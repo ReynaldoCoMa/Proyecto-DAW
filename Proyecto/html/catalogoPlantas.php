@@ -1,6 +1,6 @@
 <?php
 // Conexión a la base de datos
-include_once '../php/db_connection.php';
+include_once '../utilsDB/db_connection.php';
 
 // Función para obtener los filtros enviados por POST
 function obtenerFiltros() {

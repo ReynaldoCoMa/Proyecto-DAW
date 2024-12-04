@@ -1,6 +1,6 @@
 <?php
 // Incluir la conexión a la base de datos
-include_once '../php/db_connection.php'; // Asegúrate de tener el archivo 'db_connection.php' que se encargue de la conexión.
+include_once '../utilsDB/db_connection.php'; // Asegúrate de tener el archivo 'db_connection.php' que se encargue de la conexión.
 
 // Consulta SQL para obtener todas las plantas disponibles para adopción
 $query = "SELECT id_planta, nombrecomun, descripcion FROM plantas WHERE cantidad >= 1"; 
