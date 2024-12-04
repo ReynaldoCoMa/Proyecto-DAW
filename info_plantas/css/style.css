@@ -1,0 +1,177 @@
+html{
+    width: 100vw;
+}
+
+body{
+    background-color: rgb(244, 244, 244);
+    width: 100vw;
+}
+
+h1{
+    color: rgb(57, 73, 45);
+    font-family: "DM Serif Display", serif;
+}
+
+.navbar{
+    width: 100vw;
+    height: 10vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(89, 116, 69);
+    margin: 0;
+}
+
+.logo, .divlogo{
+    height: 100%;
+}
+
+.divlogo{
+    background-color: white;
+}
+
+.botonsalir{
+    margin: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border: 0;
+    background-color: rgb(244, 244, 244);
+    color: #1f4d1a;
+    border-radius: 15px;
+    font-size: x-large;
+}
+
+.botonsalir:hover{
+    background-color: #1f4d1a;
+    color: white;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.content{
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 0;
+}
+
+.content>div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.welcome{
+    grid-column: 1/4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.opcion{
+    font-size: xx-large;
+    color: white;
+    border-radius: 25px;
+    height: 200px;
+    width: 400px;
+    margin: 50px;
+    border: 0;
+    box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+.agregar{
+    background-color: rgb(89, 116, 69);
+}
+
+.editar{
+    background-color: #2a9d8f;
+}
+
+.eliminar{
+    background-color: #bc6c25;
+}
+
+.opcion:hover{
+    transform: scale(1.1);
+    box-shadow: none;
+    cursor: pointer;
+}
+
+.verde{
+    color: rgb(89, 116, 69);
+   color: #1f4d1a;
+}
+
+/* Formulario Adopción */
+    /* Estilo general del formulario */
+    .form-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        background-color: #f7f7f7;
+        min-height: 100vh;
+    }
+
+    .adoption-form {
+        background-color: white;
+        padding: 30px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        width: 100%;
+        max-width: 600px;
+    }
+
+    .adoption-form h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        text-align: center;
+        color: #39492d;
+    }
+
+    .adoption-form p {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+    }
+
+    .form-field {
+        margin-bottom: 20px;
+    }
+
+    .form-field label {
+        display: block;
+        font-size: 1rem;
+        margin-bottom: 5px;
+    }
+
+    .form-field input, .form-field select {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-top: 5px;
+    }
+
+    .form-field input[type="submit"] {
+        background-color: #597445;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 1.1rem;
+        padding: 15px;
+        width: 100%;
+        border-radius: 5px;
+    }
+
+    .form-field input[type="submit"]:hover {
+        background-color: #1f4d1a;
+    }
+
+    .form-field textarea {
+        width: 100%;
+        padding: 10px;
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        resize: vertical;
+    }
