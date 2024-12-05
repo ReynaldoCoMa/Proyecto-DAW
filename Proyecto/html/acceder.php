@@ -20,7 +20,7 @@
 
     <script src="../scripts/validarAcceder.js" defer></script>
 </head>
-<body>
+<body class="no-disable">
     <nav>
         <div class="navbar">
             <button class="hamburger-menu" onclick="toggleMenu()">&#9776;</button>

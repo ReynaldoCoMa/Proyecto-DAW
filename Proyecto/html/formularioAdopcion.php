@@ -51,7 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="icon" href="../images/viverologo.svg">
 
 </head>
-<body>
+<body class="no-disable">
 
     <!-- Barra de navegación -->
     <nav>
