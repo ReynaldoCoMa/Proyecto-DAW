@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <title>Vivero UADY</title>
     <link rel="stylesheet" href="../css/styles.css">
@@ -42,6 +43,20 @@
             <img src="../images/logo.jpg" alt="Planta en maceta">
         </div>        
     </div>
+
+    <!--Api del clima-->
+
+    <div class="weather-section">
+        
+        <div id="weatherContainer">
+            
+            <p>Cargando información del clima...</p>
+        </div>
+        <div id="climaicon">
+
+        </div>
+    </div>
+    
 
     <!-- Sección de noticias -->
     <div class="new-header"><h2>Noticias</h2></div>
@@ -98,5 +113,80 @@
         </div>
     </footer>
     <script src="../scripts/menu.js"></script>
+    <script>
+        const apiUrl = "https://api.open-meteo.com/v1/forecast?latitude=20.97&longitude=-89.62&current_weather=true&timezone=America/Mexico_City";
+    
+        fetch(apiUrl)
+            .then(response => response.json())
+            .then(data => {
+                const weatherContainer = document.getElementById('weatherContainer');
+                const { temperature, windspeed, weathercode } = data.current_weather;
+    
+                const weatherDescriptions = {
+                    0: "Despejado",
+                    1: "Mayormente despejado",
+                    2: "Parcialmente nublado",
+                    3: "Nublado",
+                    45: "Niebla",
+                    48: "Niebla escarchada",
+                    51: "Lluvia ligera",
+                    61: "Lluvia moderada",
+                    71: "Nieve ligera",
+                    80: "Chubascos ligeros",
+                    95: "Tormenta",
+                };
+    
+                const weatherDescription = weatherDescriptions[weathercode] || "Condiciones desconocidas";
+    
+                weatherContainer.innerHTML = `
+                    <h2>Clima Actual en Mérida</h2>
+                    <p><strong>Temperatura:</strong> ${temperature}°C</p>
+                    <p><strong>Velocidad del Viento:</strong> ${windspeed} km/h</p>
+                    <p><strong>Condición:</strong> ${weatherDescription}</p>
+                `;
+
+                const icono = document.getElementById("climaicon");
+                switch(weatherDescription){
+                    case "Despejado": 
+                        icono.innerHTML = '<i class="fa-solid fa-sun fa-2xl" style="color: #FFD43B;"></i>';
+                        break;
+                    case "Mayormente despejado":
+                        icono.innerHTML ='<i class="fa-solid fa-cloud-sun fa-2xl" style="color: #FFD43B;"></i>';
+                        break;
+                    case "Parcialmente nublado":
+                        icono.innerHTML ='<i class="fa-regular fa-cloud-sun fa-2xl"></i>';
+                        break;
+                    case "Nublado":
+                        icono.innerHTML ='<i class="fa-solid fa-cloud fa-2xl" style="color: #74C0FC;"></i>';
+                        break;
+                    case "Niebla":
+                        icono.innerHTML ='<i class="fa-solid fa-smog fa-2xl"></i>';
+                        break;
+                    case "Niebla escarchada":
+                        icono.innerHTML ='<i class="fa-solid fa-wind fa-2xl"></i>';
+                        break;
+                    case "Lluvia ligera":
+                        icono.innerHTML ='<i class="fa-solid fa-cloud-rain fa-2xl"></i>';
+                        break;
+                    case "Nieve ligera":
+                        icono.innerHTML ='<i class="fa-solid fa-snowflake fa-2xl"></i>';
+                        break;
+                    case "Chubascos ligeros":
+                        icono.innerHTML ='<i class="fa-solid fa-cloud-showers-heavy fa-2xl"></i>';
+                        break;
+                    case "Tormenta":
+                        icono.innerHTML ='<i class="fa-solid fa-cloud-bolt fa-2xl"></i>';
+                        break;
+                    default:
+                        icono.innerHTML = '<i class="fa-solid fa-sun fa-2xl" style="color: #FFD43B;"></i>';
+                        
+                }
+            })
+            .catch(error => {
+                console.error("Error al obtener los datos del clima:", error);
+                document.getElementById('weatherContainer').innerHTML = `<p>No se pudo cargar la información del clima.</p>`;
+            });
+    </script>
+    
 </body>
 </html>

@@ -24,6 +24,7 @@ if ($id_planta > 0) {
 }
 
 // Recuperar la imagen de la API usando cURL
+//nueva key sk-PMWp6751a52d4ddb77896
 $apiKey = 'sk-PWkK6750e44c521677889';
 $apiUrl = "https://perenual.com/api/species-list?key=$apiKey&q=" . urlencode($planta['nombrecientifico']);
 

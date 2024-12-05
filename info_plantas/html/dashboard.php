@@ -29,12 +29,6 @@
         <div>
             <button class="editar opcion" id="btnEditar">Editar o eliminar planta</button>
         </div>
-        <div>
-            <button class="generar QR" id="btnQR">Genera QR</button>
-        </div>
-        <div>
-            <button class="adminTarjetas" id="btnTarjetas">Administrar Tarjetas</button>
-        </div>
      </div>
     
 
@@ -51,13 +45,8 @@
         document.getElementById("btnEditar").addEventListener("click", function() {
             window.location.href = "editar.php"; // Página para editar planta
         });
-    
-        document.getElementById("btnQR").addEventListener("click", function() {
-            window.location.href = "../../Proyecto/html/QR.php"; // Página para generar QR
-        });
-
-        document.getElementById("btnTarjetas").addEventListener("click", function() {
-            window.location.href = "../../Proyecto/html/adminTarjetas.php"; // Página para administrar Tarjetas 
+        document.getElementById("btnEliminar").addEventListener("click", function() {
+            window.location.href = "eliminar.html"; // Página para eliminar planta
         });
     </script>
 </body>

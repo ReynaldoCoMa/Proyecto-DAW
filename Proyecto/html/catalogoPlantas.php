@@ -3,7 +3,8 @@
 include_once '../utilsDB/db_connection.php';
 
 // Clave y URL de la API de Perenual
-const PERENUAL_API_KEY = 'sk-PWkK6750e44c521677889';
+//nueva key sk-PMWp6751a52d4ddb77896
+const PERENUAL_API_KEY = 'sk-Axzd6751a448174c37889';
 const PERENUAL_API_URL = 'https://perenual.com/api/species/details/';
 
 // Función para obtener los filtros enviados por POST
