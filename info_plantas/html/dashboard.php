@@ -33,7 +33,11 @@ if (!isset($_COOKIE['authenticated']) || $_COOKIE['authenticated'] !== "true") {
      </nav>
 
      <div class="content">
-        <div class="welcome"><h1>¡Bienvenido de nuevo!</h1></div>
+        <div class="welcome"><h1>¡Bienvenido de nuevo, <?php // imprimiendo el nombre por medio de la información en la Cookie
+            if (isset($_COOKIE['user'])) {
+                echo "<span>" . htmlspecialchars($_COOKIE['user']) . "</span>";
+            }
+         ?> !</h1></div>
         <div>
             <button class="agregar opcion" id="btnAgregar">Agregar planta</button>
         </div>
