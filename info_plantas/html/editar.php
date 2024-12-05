@@ -24,10 +24,10 @@
     <h1>Gestión de Plantas</h1>
 
     <?php
-    $servername = "localhost:3307";
+    $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "vivero";
+    $dbname = "database1";
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
