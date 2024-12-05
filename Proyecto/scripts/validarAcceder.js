@@ -8,7 +8,7 @@ function validarForm(){
     }
 
     if(password.length < 4){
-        alert("La contraseña debe tener al menos 6 caracteres.");
+        alert("La contraseña debe tener al menos 4 caracteres.");
         return false;
     }
 

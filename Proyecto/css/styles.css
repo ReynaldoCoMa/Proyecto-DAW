@@ -914,3 +914,9 @@ nav ul li.nav-item:hover{
     .planta-card-custom button:hover {
         background-color: #496336;
     }
+
+    @media print {
+        .no-print {
+            display: none;
+        }
+    }
