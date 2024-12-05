@@ -224,8 +224,24 @@ $disponibilidad = obtenerDisponibilidad($conn);
         </div>
     </div>
 
-    <footer>
-        <p>© Universidad Autónoma de Yucatán - Todos los Derechos Reservados</p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="../images/logo.jpg" alt="logo uady">
+            </div>
+            <div class="footer-text">
+                <p>Universidad Autónoma de Yucatán</p>
+                <p>© Todos los Derechos Reservados, UADY 2024</p>
+                <p>Síguenos en nuestras redes sociales</p>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/UADY.Sustentable" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://x.com/UADYoficial" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.instagram.com/uady.sustentable/" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/company/uadyinstitucional/" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
