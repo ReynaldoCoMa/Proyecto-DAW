@@ -4,28 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestión de Plantas</title>
-    <style>
-        .plant-card {
-            border: 1px solid #ccc;
-            padding: 15px;
-            margin: 10px;
-            border-radius: 5px;
-        }
-        .buttons {
-            margin-top: 10px;
-        }
-        .buttons button {
-            margin-right: 10px;
-        }
-        #editFormContainer {
-            display: none;
-            border: 1px solid #ccc;
-            padding: 15px;
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Lato&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/styleEditar.css">
+    
 </head>
 <body>
+    <nav>
+        <div class="navbar">
+            <div class="divlogo">
+                <img class="logo" src="../../Proyecto/images/logoviverouady.svg">
+            </div>
+            <div>
+                <button class="botonsalir">Cerrar sesión</button>
+            </div>
+        </div>
+     </nav>
     <h1>Gestión de Plantas</h1>
 
     <?php
@@ -52,8 +47,8 @@
                 <p><strong>Nombre Maya:</strong> {$row['nombremaya']}</p>
                 <p><strong>Nombre Científico:</strong> {$row['nombrecientifico']}</p>
                 <div class='buttons'>
-                    <button onclick='editPlant({$row['id_planta']})'>Editar</button>
-                    <button onclick='deletePlant({$row['id_planta']})'>Eliminar</button>
+                    <button class='optionedit' onclick='editPlant({$row['id_planta']})'>Editar</button>
+                    <button class='optionedit' onclick='deletePlant({$row['id_planta']})'>Eliminar</button>
                 </div>
             </div>
             ";
@@ -66,35 +61,55 @@
     $conn->close();
     ?>
 
+    
+
     <!-- Contenedor del formulario de edición -->
+    
     <div id="editFormContainer">
-        <h2>Editar Planta</h2>
-        <form id="editForm" method="post" action="actualizarplanta.php">
-            <input type="hidden" name="id_planta" id="editIdPlanta">
-            <label for="editNombre">Nombre común:</label>
-            <input type="text" id="editNombre" name="nombre" required><br>
-            <label for="editNombreMaya">Nombre en maya:</label>
-            <input type="text" id="editNombreMaya" name="nombremaya" required><br>
-            <label for="editNombreCientifico">Nombre científico:</label>
-            <input type="text" id="editNombreCientifico" name="nombrecientifico" required><br>
-            <label for="editTipo">Tipo:</label>
-            <select id="editTipo" name="tipo" required>
-                <option value="Helechos y afines">Helechos y afines</option>
-                <option value="Gimnospermas">Gimnospermas</option>
-                <option value="Angiospermas">Angiospermas</option>
-            </select><br>
-            <label for="editDescripcion">Descripción:</label>
-            <textarea id="editDescripcion" name="descripcion" required></textarea><br>
-            <label for="editCantidad">Cantidad disponibles:</label>
-            <input type="number" id="editCantidad" name="cantidad" required><br>
-            <button type="submit">Guardar Cambios</button>
-            <button type="button" onclick="closeEditForm()">Cancelar</button>
-        </form>
+    <h2>Editar Planta</h2>
+        <div class="form-container">
+            
+            <form id="editForm" method="post" action="actualizarplanta.php">
+                <div class="form-field">
+                    <label for="editNombre">Nombre común:</label>
+                    <input type="text" id="editNombre" name="nombre" required>
+                </div>
+                <div class="form-field">
+                    <label for="editNombreMaya">Nombre en maya:</label>
+                    <input type="text" id="editNombreMaya" name="nombremaya" required>
+                </div>
+                <div class="form-field">
+                    <label for="editNombreCientifico">Nombre científico:</label>
+                    <input type="text" id="editNombreCientifico" name="nombrecientifico" required>
+                </div>
+                <div class="form-field">
+                    <label for="editTipo">Tipo:</label>
+                    <select id="editTipo" name="tipo" required>
+                        <option value="Helechos y afines">Helechos y afines</option>
+                        <option value="Gimnospermas">Gimnospermas</option>
+                        <option value="Angiospermas">Angiospermas</option>
+                    </select>
+                </div>
+                <div class="form-field">
+                    <label for="editDescripcion">Descripción:</label>
+                    <textarea id="editDescripcion" name="descripcion" required></textarea>
+                </div>
+                <div class="form-field">
+                    <label for="editCantidad">Cantidad disponibles:</label>
+                    <input type="number" id="editCantidad" name="cantidad" required>
+                </div>
+                <input type="hidden" name="id_planta" id="editIdPlanta">
+                <button type="submit">Guardar Cambios</button>
+                <button type="button" onclick="closeEditForm()">Cancelar</button>
+            </form>
+        </div>
     </div>
 
     <script>
         // Función para abrir el formulario de edición
         function editPlant(id) {
+            document.getElementById("editFormContainer").classList.add("visible");
+
             fetch(`getPlanta.php?id=${id}`)
                 .then(response => response.json())
                 .then(data => {
@@ -106,16 +121,15 @@
                     document.getElementById('editTipo').value = data.tipo;
                     document.getElementById('editDescripcion').value = data.descripcion;
                     document.getElementById('editCantidad').value = data.cantidad;
-
-                    // Mostrar el formulario
-                    document.getElementById('editFormContainer').style.display = 'block';
                 });
         }
 
-        // Función para cerrar el formulario de edición
-        function closeEditForm() {
-            document.getElementById('editFormContainer').style.display = 'none';
+        function styleEditForm(form) {
+            form.style.display = "block";
+            form.style.backgroundColor = "red";
         }
+
+        
 
         // Función para eliminar una planta
         function deletePlant(id) {
