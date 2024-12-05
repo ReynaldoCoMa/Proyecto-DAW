@@ -15,7 +15,7 @@ function renderPlantas(plantas) {
             <img src="../images/prueba.jpeg" alt="${planta.nombrecomun}">
             <h2>${planta.nombrecomun}</h2>
             <p>Cantidad disponible: ${planta.cantidad}</p>
-            <a href="formularioAdopcion.html?planta=${planta.id_planta}"><strong>Adoptar</strong></a>
+            <a href="formularioAdopcion.php?planta=${planta.id_planta}"><strong>Adoptar</strong></a>
         `;
         container.appendChild(card);
     });
