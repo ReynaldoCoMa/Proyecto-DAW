@@ -868,3 +868,49 @@ nav ul li.nav-item:hover{
         color: #aaa;
         font-style: italic;
     }
+
+    /* Contenedor de las plantas */
+    #plantResultsContainer {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        padding: 20px;
+    }
+
+    /* Estilos para las tarjetas de plantas */
+    .planta-card-custom {
+        background-color: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .planta-card-custom:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .planta-card-custom h3 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .planta-card-custom p {
+        font-size: 16px;
+        color: #333;
+    }
+
+    .planta-card-custom button {
+        padding: 10px 15px;
+        background-color: #597445;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .planta-card-custom button:hover {
+        background-color: #496336;
+    }

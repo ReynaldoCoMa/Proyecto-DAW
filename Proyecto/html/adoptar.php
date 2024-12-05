@@ -1,15 +1,16 @@
 <?php
-// Incluir la conexión a la base de datos
-include_once '../utilsDB/db_connection.php'; // Asegúrate de tener el archivo 'db_connection.php' que se encargue de la conexión.
+// Incluir conexión a la base de datos
+include_once '../utilsDB/db_connection.php'; 
 
-// Consulta SQL para obtener todas las plantas disponibles para adopción
-$query = "SELECT id_planta, nombrecomun, descripcion FROM plantas WHERE cantidad >= 1"; 
+// Obtener las plantas visibles para adopción desde la base de datos
+$query = "SELECT id_planta, nombrecomun, cantidad FROM plantas WHERE visible = 1 AND cantidad > 0";
 $result = $conn->query($query);
+$plantas = [];
 
-// Verificar si se obtuvieron resultados
 if ($result->num_rows > 0) {
-    // Si hay resultados, obtener todas las plantas en un arreglo
-    $plantas = $result->fetch_all(MYSQLI_ASSOC);
+    while ($row = $result->fetch_assoc()) {
+        $plantas[] = $row;
+    }
 } else {
     $plantas = [];
 }
@@ -20,10 +21,8 @@ if ($result->num_rows > 0) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <title>Vivero UADY - Adoptar Planta</title>
     <link rel="stylesheet" href="../css/styles.css">
-    <link rel="icon" href="../images/viverologo.svg">
-    <title>Vivero UADY - Adoptar</title>
 </head>
 <body>
 
@@ -42,7 +41,7 @@ if ($result->num_rows > 0) {
     </nav>
 
     <!-- Título principal -->
-    <div class="new-header"><h2>Plantas Disponibles</h2></div>
+    <div class="new-header"><h2>Plantas Disponibles para Adopción</h2></div>
 
     <!-- Barra de búsqueda -->
     <div class="search-container">
@@ -87,5 +86,13 @@ if ($result->num_rows > 0) {
     </footer>
 
     <script src="../scripts/menu.js"></script>
+    <script>
+        // Declarar la variable 'plantas' en el contexto global
+        var plantas = <?php echo json_encode($plantas); ?>;
+    </script>
+
+    <!-- Incluir el archivo JavaScript externo -->
+    <script src="../scripts/adoptar.js"></script>
+
 </body>
 </html>
