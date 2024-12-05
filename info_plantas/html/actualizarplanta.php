@@ -1,4 +1,5 @@
 <?php 
+
 header('Content-Type: application/json'); // Indicar que se enviará JSON
 $servername = "localhost:3308";
 $username = "root";

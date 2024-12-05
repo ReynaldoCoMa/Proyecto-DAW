@@ -16,13 +16,13 @@
                 <img class="logo" src="../../Proyecto/images/logoviverouady.svg">
             </div>
             <div>
-                <button class="botonsalir">Cerrar sesión</button>
+                <button class="botonsalir" onclick="window.location.href='../../Proyecto/phplogin/logout.php'">Cerrar sesión</button>
             </div>
         </div>
-     </nav>
+    </nav>
 
-     <div class="content">
-        <div class="welcome"><h1>¡Bienvenido de nuevo!</h1></div>
+    <div class="content">
+        <div class="welcome"><h1>¡Bienvenido de nuevo, <?php echo htmlspecialchars($_SESSION['username']); ?>!</h1></div>
         <div>
             <button class="agregar opcion" id="btnAgregar">Agregar planta</button>
         </div>
@@ -30,34 +30,29 @@
             <button class="editar opcion" id="btnEditar">Editar o eliminar planta</button>
         </div>
         <div>
-            <button class="generar QR" id="btnQR">Genera QR</button>
+            <button class="generarQR" id="btnQR">Generar QR</button>
         </div>
         <div>
             <button class="adminTarjetas" id="btnTarjetas">Administrar Tarjetas</button>
         </div>
-     </div>
-    
+    </div>
 
-
-
-
-
-     <script>
+    <script>
         // Asignar eventos de clic a cada botón
         document.getElementById("btnAgregar").addEventListener("click", function() {
             window.location.href = "agregar.php"; // Página para agregar planta
         });
-    
+
         document.getElementById("btnEditar").addEventListener("click", function() {
             window.location.href = "editar.php"; // Página para editar planta
         });
-    
+
         document.getElementById("btnQR").addEventListener("click", function() {
             window.location.href = "../../Proyecto/html/QR.php"; // Página para generar QR
         });
 
         document.getElementById("btnTarjetas").addEventListener("click", function() {
-            window.location.href = "../../Proyecto/html/adminTarjetas.php"; // Página para administrar Tarjetas 
+            window.location.href = "../../Proyecto/html/adminTarjetas.php"; // Página para administrar Tarjetas
         });
     </script>
 </body>
