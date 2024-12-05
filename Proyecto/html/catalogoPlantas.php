@@ -70,7 +70,7 @@ function obtenerResultados($conn, $query) {
 
 // Función para obtener la imagen de una planta desde la API de Perenual
 function obtenerImagenPlanta($nombrecientifico) {
-    if (!$nombrecientifico) {
+    /*if (!$nombrecientifico) {
         error_log("No se proporcionó nombre científico. Retornando imagen por defecto.");
         return '../images/default-plant.jpg';
     }
@@ -90,7 +90,7 @@ function obtenerImagenPlanta($nombrecientifico) {
     $datosBusqueda = json_decode($respuestaBusqueda, true);
 
     // Validar si hay datos
-    if (!empty($datosBusqueda['data']) && isset($datosBusqueda['data'][0]['id'])) {
+    /*if (!empty($datosBusqueda['data']) && isset($datosBusqueda['data'][0]['id'])) {
         $idPlanta = $datosBusqueda['data'][0]['id'];
         error_log("ID de la planta encontrada: " . $idPlanta);
 
@@ -118,12 +118,12 @@ function obtenerImagenPlanta($nombrecientifico) {
         }
     } else {
         error_log("No se encontraron resultados para el nombre científico: " . $nombrecientifico);
-    }
+    } 
 
     // Retornar imagen por defecto
-    error_log("Retornando imagen por defecto.");
+    error_log("Retornando imagen por defecto."); */	
     return '../images/plantaIndex.png';
-}
+} 
 
 
 

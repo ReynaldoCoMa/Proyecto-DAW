@@ -43,7 +43,7 @@ if (!isset($_COOKIE['authenticated']) || $_COOKIE['authenticated'] !== "true") {
     $servername = "localhost:3308";
     $username = "root";
     $password = "";
-    $dbname = "vivero";
+    $dbname = "database1";
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 

@@ -29,7 +29,7 @@ $apiKey = 'sk-PWkK6750e44c521677889';
 $apiUrl = "https://perenual.com/api/species-list?key=$apiKey&q=" . urlencode($planta['nombrecientifico']);
 
 $imageUrl = '../images/default.jpg'; // Imagen por defecto
-$apiResponse = file_get_contents($apiUrl);
+/*$apiResponse = file_get_contents($apiUrl);
 
 
 
@@ -38,7 +38,10 @@ if ($apiResponse) {
     if (isset($data['data'][0]['default_image']['regular_url'])) {
         $imageUrl = $data['data'][0]['default_image']['regular_url'];
     }
-}
+} else {
+    //retornar images por defecto */
+    $imageUrl = '../images/prueba.jpeg';
+
 ?>
 
 <!DOCTYPE html>

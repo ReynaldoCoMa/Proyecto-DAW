@@ -5,10 +5,10 @@ if (!isset($_COOKIE['authenticated']) || $_COOKIE['authenticated'] !== "true") {
     header("Location: ../../Proyecto/html/acceder.php");
     exit();
 }
-$servername = "localhost:3307";
+$servername = "localhost:3308";
 $username = "root";
 $password = "";
-$dbname = "vivero";
+$dbname = "database1";
 
 // Crear conexión
 $conn = new mysqli($servername, $username, $password, $dbname);
