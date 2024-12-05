@@ -243,5 +243,7 @@ $disponibilidad = obtenerDisponibilidad($conn);
             </div>
         </div>
     </footer>
+
+    <script src="../scripts/menu.js"></script>
 </body>
 </html>

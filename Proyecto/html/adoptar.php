@@ -76,6 +76,7 @@ if ($result->num_rows > 0) {
     </script>
 
     <!-- Incluir el archivo JavaScript externo -->
+    <script src="../scripts/menu.js"></script>
     <script src="../scripts/adoptar.js"></script>
 
 </body>
