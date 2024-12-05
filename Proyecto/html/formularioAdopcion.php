@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $imagenPath = null; 
     if(!empty($_FILES['imagen']['name'])){
-        $uploadDir = '../images'; 
+        $uploadDir = '../images/'; 
         $imagenPath = $uploadDir . basename($_FILES['imagen']['name']); 
 
         // Validar el archivo (tamaño y tipo)

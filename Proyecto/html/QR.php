@@ -41,7 +41,7 @@
                 <select name="id_planta" id="planta_generar" required>
                     <?php
                     // Consulta para obtener plantas sin QR
-                    $conn = new mysqli('localhost:3308', 'root', '', 'database1');
+                    $conn = new mysqli('localhost', 'root', '', 'database1');
                     if ($conn->connect_error) {
                         die("Conexión fallida: " . $conn->connect_error);
                     }

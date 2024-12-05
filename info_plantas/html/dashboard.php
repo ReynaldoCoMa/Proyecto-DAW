@@ -20,31 +20,31 @@ if (!isset($_COOKIE['authenticated']) || $_COOKIE['authenticated'] !== "true") {
     <link rel="stylesheet" href="../css/style.css">
     <title>Gestión plantas</title>
 </head>
-<body>
+<body class="no-disable">
     <nav>
         <div class="navbar">
             <div class="divlogo">
                 <img class="logo" src="../../Proyecto/images/logoviverouady.svg">
             </div>
             <div>
-                <button class="botonsalir" onclick="window.location.href='../../Proyecto/phplogin/logout.php'">Cerrar sesión</button>
+            <button class="botonsalir" onclick="window.location.href='../../Proyecto/phplogin/logout.php'">Cerrar sesión</button>
             </div>
         </div>
      </nav>
 
      <div class="content">
-        <h1>¡Bienvenido de nuevo,  <?php
-            if (isset($_COOKIE['user'])) {
-                echo "<span>" . htmlspecialchars($_COOKIE['user']) . "</span>";
-            }
-         ?>  !</h1>
-       
-    </div>
+        <div class="welcome"><h1>¡Bienvenido de nuevo!</h1></div>
         <div>
             <button class="agregar opcion" id="btnAgregar">Agregar planta</button>
         </div>
         <div>
             <button class="editar opcion" id="btnEditar">Editar o eliminar planta</button>
+        </div>
+        <div>
+            <button class="generar QR" id="btnQR">Genera QR</button>
+        </div>
+        <div>
+            <button class="adminTarjetas" id="btnTarjetas">Administrar Tarjetas</button>
         </div>
      </div>
     
@@ -56,17 +56,20 @@ if (!isset($_COOKIE['authenticated']) || $_COOKIE['authenticated'] !== "true") {
      <script>
         // Asignar eventos de clic a cada botón
         document.getElementById("btnAgregar").addEventListener("click", function() {
-            window.location.href = "agregar.php"; // Página para agregar planta
+            window.location.href = "agregar.html"; // Página para agregar planta
         });
     
         document.getElementById("btnEditar").addEventListener("click", function() {
             window.location.href = "editar.php"; // Página para editar planta
         });
     
-        document.getElementById("btnEliminar").addEventListener("click", function() {
-            window.location.href = "eliminar.html"; // Página para eliminar planta
+        document.getElementById("btnQR").addEventListener("click", function() {
+            window.location.href = "../../Proyecto/html/QR.php"; // Página para generar QR
         });
 
+        document.getElementById("btnTarjetas").addEventListener("click", function() {
+            window.location.href = "../../Proyecto/html/adminTarjetas.php"; // Página para administrar Tarjetas 
+        });
     </script>
 </body>
 </html>
