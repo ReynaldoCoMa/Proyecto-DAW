@@ -164,7 +164,7 @@ $disponibilidad = obtenerDisponibilidad($conn);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <title>Vivero UADY - Catálogo de Plantas</title>
 </head>
-<body>
+<body class="print-enabled">
     <nav>
         <div class="navbar">
             <button class="hamburger-menu" onclick="toggleMenu()">&#9776;</button>
@@ -243,5 +243,7 @@ $disponibilidad = obtenerDisponibilidad($conn);
             </div>
         </div>
     </footer>
+
+    <script src="../scripts/menu.js"></script>
 </body>
 </html>

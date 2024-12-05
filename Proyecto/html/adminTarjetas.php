@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="icon" href="../images/viverologo.svg">
 </head>
-<body>
+<body class="no-disable">
 
     <!-- Barra de navegación -->
     <nav>

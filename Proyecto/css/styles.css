@@ -914,3 +914,103 @@ nav ul li.nav-item:hover{
     .planta-card-custom button:hover {
         background-color: #496336;
     }
+
+    /* Media print solo para catalogo y fichas descriptivas */
+    @media print {
+        
+         /* Ocultar todo el contenido dentro de .no-disable */
+        .no-disable{
+            display: none !important;
+        }
+
+        .print-enabled{
+            display: block !important;
+            -webkit-print-color-adjust: exact;
+        }
+
+        /* Mostrar únicamente los contenedores específicos y sus subelementos */
+        .plant-detail-container,
+        .plant-info,
+        .plant-image,
+        .plant-detail-container *,
+        .plant-catalog, .plant-list,
+        .plant-card {
+            display: block !important;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 1cm;
+        }
+
+        /* Estilos para .plant-detail-container */
+        .plant-detail-container {
+            border: 1px solid #ddd;
+            margin-bottom: 8px;
+            padding: 5px;
+        }
+
+        .plant-detail-container h1 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .plant-detail-container p {
+            font-size: 14px;
+            margin: 5px 0;
+        }
+
+        .plant-detail-container .plant-image img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 5px 0;
+            align-content: center;
+        }
+        
+        /* Mostrar el título y el texto descriptivo del catálogo */
+        .plant-catalog h1,
+        .plant-catalog p {
+            display: block;
+        }
+        
+        /* Asegurarse de que las fichas se vean bien al imprimir */
+        .plant-list {
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .plant-list .plant-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            page-break-inside: avoid; /* Evita que una ficha se divida entre páginas */
+        }
+        
+        .plant-list .plant-card img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .plant-list .plant-card h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        
+        .plant-list .plant-card p {
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        /* Ocultar el panel de filtros */
+        .filter-panel {
+            display: none !important;
+        }
+        
+        /* Asegurarse de que los enlaces no se impriman */
+        .plant-list .plant-card a {
+            display: none !important;
+        }
+    }
+    

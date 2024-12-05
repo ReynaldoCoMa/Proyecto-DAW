@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="../css/styleEditar.css">
     
 </head>
-<body>
+<body class="no-disable">
     <nav>
         <div class="navbar">
             <div class="divlogo">
