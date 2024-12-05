@@ -61,15 +61,14 @@
     $conn->close();
     ?>
 
-    
 
     <!-- Contenedor del formulario de edición -->
     
     <div id="editFormContainer">
-    <h2>Editar Planta</h2>
+    <h2 id="editarverde">Editar Planta</h2>
         <div class="form-container">
             
-            <form id="editForm" method="post" action="actualizarplanta.php">
+            <form id="editForm" method="post" action="actualizarplanta.php" class="adoption-form">
                 <div class="form-field">
                     <label for="editNombre">Nombre común:</label>
                     <input type="text" id="editNombre" name="nombre" required>
@@ -95,17 +94,23 @@
                     <textarea id="editDescripcion" name="descripcion" required></textarea>
                 </div>
                 <div class="form-field">
-                    <label for="editCantidad">Cantidad disponibles:</label>
+                    <label for="editCantidad">Cantidad disponible:</label>
                     <input type="number" id="editCantidad" name="cantidad" required>
                 </div>
                 <input type="hidden" name="id_planta" id="editIdPlanta">
-                <button type="submit">Guardar Cambios</button>
-                <button type="button" onclick="closeEditForm()">Cancelar</button>
+                <div class="form-field">
+                    <button type="submit" id="decision">Guardar Cambios</button>
+                    <button type="button" onclick="closeEditForm()" id="decision">Cancelar</button>
+                </div>
+                
             </form>
         </div>
     </div>
 
     <script>
+        
+        
+
         // Función para abrir el formulario de edición
         function editPlant(id) {
             document.getElementById("editFormContainer").classList.add("visible");
@@ -133,7 +138,7 @@
 
         // Función para eliminar una planta
         function deletePlant(id) {
-            if (confirm("¿Estás seguro de que deseas eliminar esta planta?")) {
+            if (confirm("ATENCIÓN: Se eliminarán todos los datos de esta planta. Considera que algunas personas podrían haber generado un certificado de adopción de esta planta. ¿Deseas continuar con la eliminación? ")) {
                 fetch(`eliminarplanta.php?id=${id}`, { method: 'GET' })
                     .then(response => response.text())
                     .then(result => {
@@ -145,6 +150,11 @@
                         }
                     });
             }
+        }
+
+
+        function closeEditForm(){
+            document.getElementById("editFormContainer").classList.remove("visible");
         }
     </script>
 </body>

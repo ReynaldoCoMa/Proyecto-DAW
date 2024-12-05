@@ -91,10 +91,14 @@ h2{
 
 }
 
+#editarverde{
+    color: #1f4d1a;
+}
+
 /* Formulario Adopción */
     /* Estilo general del formulario */
     .form-container {
-        width: 100vw;
+        width: 800px;
         height: 100vh;
         display: flex;
         justify-content: center;
@@ -109,7 +113,7 @@ h2{
         padding: 30px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         border-radius: 10px;
-        width: 100%;
+        width: 800px;
         
     }
 
@@ -159,11 +163,74 @@ h2{
         background-color: #1f4d1a;
     }
 
-    .form-field textarea {
+    #decision{
+        background-color: #597445;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 1.1rem;
+        padding: 15px;
         width: 100%;
-        padding: 10px;
-        font-size: 1rem;
-        border: 1px solid #ccc;
         border-radius: 5px;
-        resize: vertical;
     }
+
+    /* Estilos básicos para el modal */
+    .modal {
+        display: none; /* Oculto por defecto */
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+    }
+    .modal-content {
+        background-color: #fff;
+        margin: 15% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 30%;
+        border-radius: 10px;
+        text-align: center;
+    }
+    .modal-header {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin-bottom: 15px;
+    }
+    .modal-buttons {
+        display: flex;
+        justify-content: space-around;
+        margin-top: 20px;
+    }
+    .modal-buttons button {
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+    }
+    .btn-confirm {
+        background-color: #e74c3c;
+        color: #fff;
+    }
+    .btn-cancel {
+        background-color: #95a5a6;
+        color: #fff;
+    }
+    .btn-confirm:hover {
+        background-color: #c0392b;
+    }
+    .btn-cancel:hover {
+        background-color: #7f8c8d;
+    }
+
+    .modalestilo{
+        display: block;
+        position: absolute;
+        background-color: red;
+    }
+
+  
