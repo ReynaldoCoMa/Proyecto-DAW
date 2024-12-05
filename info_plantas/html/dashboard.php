@@ -45,7 +45,6 @@
         document.getElementById("btnEditar").addEventListener("click", function() {
             window.location.href = "editar.php"; // Página para editar planta
         });
-    
         document.getElementById("btnEliminar").addEventListener("click", function() {
             window.location.href = "eliminar.html"; // Página para eliminar planta
         });

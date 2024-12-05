@@ -11,19 +11,43 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $email = $_POST['email'];
     $direccion = $_POST['direccion'];
 
+    $imagenPath = null; 
+    if(!empty($_FILES['imagen']['name'])){
+        $uploadDir = '../images'; 
+        $imagenPath = $uploadDir . basename($_FILES['imagen']['name']); 
+
+        // Validar el archivo (tamaño y tipo)
+        $fileType = strtolower(pathinfo($imagenPath, PATHINFO_EXTENSION));
+        if ($_FILES['imagen']['size'] > 5000000) { // Tamaño máximo 5MB
+            die("El archivo es demasiado grande.");
+        }
+        if (!in_array($fileType, ['jpg', 'jpeg', 'png', 'gif'])) {
+            die("Solo se permiten imágenes (JPG, JPEG, PNG, GIF).");
+        }
+
+        // Mover el archivo subido
+        if (!move_uploaded_file($_FILES['imagen']['tmp_name'], $imagenPath)) {
+            die("Error al subir la imagen.");
+        }
+
+    }
+
     // Guardar los datos de la adopción en la base de datos (sin necesidad de id_adopcion)
-    $query = "INSERT INTO adopciones (id_planta, nombre_adoptador, email, direccion) 
-              VALUES ('$plantaId', '$nombre', '$email', '$direccion')";
+    $query = "INSERT INTO adopciones (id_planta, nombre_adoptador, email, direccion, imagen) 
+              VALUES ('$plantaId', '$nombre', '$email', '$direccion', '$imagenPath')";
     if ($conn->query($query) === TRUE) {
         // Si la adopción fue exitosa, actualizar la cantidad de la planta
         $updateQuery = "UPDATE plantas SET cantidad = cantidad - 1 WHERE id_planta = '$plantaId'";
         $conn->query($updateQuery);
 
+        header("Location:../phpComprobante/comprobante.php?planta=$plantaId&nombre=" . urlencode($nombre) . "&email=" . urlencode($email) . "&direccion=" . urlencode($direccion));
+        exit();
+
         // Redirigir a una página de agradecimiento o mostrar mensaje de éxito
-        echo "<script>
+        /*echo "<script>
                 alert('¡Gracias por adoptar! La planta ha sido reservada para ti.');
                 window.location.href = 'adoptar.php'; //Redirigir a otra página
-              </script>";
+              </script>";*/
     } else {
         echo "<script>
                 alert('Error al procesar la adopción: " . $conn->error . "');
@@ -62,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 <li class="nav-item"><a href="index.html">Inicio</a></li>
                 <li class="nav-item"><a href="catalogoPlantas.php">Plantas</a></li>
                 <li class="nav-item active"><a href="adoptar.php">Adopta una planta</a></li>
-                <li class="nav-item"><a href="acceder.html">Ingresar</a></li>
+                <li class="nav-item"><a href="acceder.php">Ingresar</a></li>
             </ul>
         </div>
      </nav>
@@ -72,7 +96,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="adoption-form">
             <h1>¡Ya casi es tuya!</h1>
             <p>Completa el formulario para adoptar una planta del vivero.</p>
-            <form action="#" method="post" id="adoptForm">
+            <form action="#" method="post" id="adoptForm" enctype="multipart/form-data">
                 <!-- Campo para el nombre -->
                 <div class="form-field">
                     <label for="nombre">Nombre Completo:</label>
@@ -96,6 +120,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <label for="direccion">Dirección de Entrega:</label>
                     <input type="text" id="direccion" name="direccion" required>
                 </div>
+
+                 <!-- Campo para subir una imagen (documento) -->
+                 <div class="form-field">
+                    <label for="imagen">Sube una imagen de tu identificación:</label>
+                    <input type="file" id="imagen" name="imagen" accept="image/*" required>
+                </div>
+
 
                 <!-- Botón de envío -->
                 <div class="form-field">

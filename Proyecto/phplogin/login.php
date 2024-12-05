@@ -19,7 +19,7 @@ if(isset($_POST['submit'])){
     $count = mysqli_num_rows($result); 
 
     if($count ==1){
-        header("Location:../../info_plantas/html/dashboard.html");
+        header("Location:../../info_plantas/html/dashboard.php");
     }else{
         echo '<script>
         window.location.href = "../html/acceder.php"; 
