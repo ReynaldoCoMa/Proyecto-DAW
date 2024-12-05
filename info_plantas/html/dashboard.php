@@ -60,7 +60,7 @@ if (!isset($_COOKIE['authenticated']) || $_COOKIE['authenticated'] !== "true") {
      <script>
         // Asignar eventos de clic a cada botón
         document.getElementById("btnAgregar").addEventListener("click", function() {
-            window.location.href = "agregar.html"; // Página para agregar planta
+            window.location.href = "agregar.php"; // Página para agregar planta
         });
     
         document.getElementById("btnEditar").addEventListener("click", function() {

@@ -40,7 +40,7 @@ if (!isset($_COOKIE['authenticated']) || $_COOKIE['authenticated'] !== "true") {
          ?>! Elija con cuidado lo que desea hacer.
     </p>
     <?php
-    $servername = "localhost";
+    $servername = "localhost:3308";
     $username = "root";
     $password = "";
     $dbname = "vivero";
@@ -161,6 +161,10 @@ if (!isset($_COOKIE['authenticated']) || $_COOKIE['authenticated'] !== "true") {
                         }
                     });
             }
+        }
+
+        function closeEditForm() {
+            document.getElementById("editFormContainer").classList.remove("visible");
         }
     </script>
 </body>
