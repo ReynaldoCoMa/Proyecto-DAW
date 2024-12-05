@@ -1,7 +1,5 @@
-<?php 
-
-header('Content-Type: application/json'); // Indicar que se enviará JSON
-$servername = "localhost:3308";
+<?php
+$servername = "localhost";
 $username = "root";
 $password = "";
 $dbname = "vivero";
@@ -9,8 +7,7 @@ $dbname = "vivero";
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 if ($conn->connect_error) {
-    echo json_encode(["status" => "error", "message" => "Error de conexión: " . $conn->connect_error]);
-    exit;
+    die("Error de conexión: " . $conn->connect_error);
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -47,9 +44,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt_ubicacion->execute();
         }
 
-        echo json_encode(["status" => "success", "message" => "Planta actualizada correctamente."]);
+        echo "Planta actualizada correctamente.";
     } else {
-        echo json_encode(["status" => "error", "message" => "Error al actualizar la planta: " . $stmt->error]);
+        echo "Error al actualizar la planta: " . $stmt->error;
     }
 
     $stmt->close();

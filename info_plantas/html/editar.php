@@ -1,3 +1,13 @@
+
+<?php
+// Verificar si la cookie de autenticación está configurada
+if (!isset($_COOKIE['authenticated']) || $_COOKIE['authenticated'] !== "true") {
+    // Si no está autenticado, redirigir al login
+    header("Location: ../../Proyecto/html/acceder.php");
+    exit();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,24 +20,30 @@
     <link rel="stylesheet" href="../css/styleEditar.css">
     
 </head>
-<body class="no-disable">
+<body>
     <nav>
         <div class="navbar">
             <div class="divlogo">
                 <img class="logo" src="../../Proyecto/images/logoviverouady.svg">
             </div>
             <div>
-                <button class="botonsalir">Cerrar sesión</button>
+            <button class="botonsalir" onclick="window.location.href='../../Proyecto/phplogin/logout.php'">Cerrar sesión</button>
             </div>
         </div>
      </nav>
     <h1>Gestión de Plantas</h1>
-
+    <p>¡Hola
     <?php
-    $servername = "localhost:3308";
+            if (isset($_COOKIE['user'])) {
+                echo "<span>" . htmlspecialchars($_COOKIE['user']) . "</span>";
+            }
+         ?>! Elija con cuidado lo que desea hacer.
+    </p>
+    <?php
+    $servername = "localhost";
     $username = "root";
     $password = "";
-    $dbname = "database1";
+    $dbname = "vivero";
 
     $conn = new mysqli($servername, $username, $password, $dbname);
 
@@ -61,14 +77,15 @@
     $conn->close();
     ?>
 
+    
 
     <!-- Contenedor del formulario de edición -->
     
     <div id="editFormContainer">
-    <h2 id="editarverde">Editar Planta</h2>
+    <h2>Editar Planta</h2>
         <div class="form-container">
             
-            <form id="editForm" method="post" action="actualizarplanta.php" class="adoption-form">
+            <form id="editForm" method="post" action="actualizarplanta.php">
                 <div class="form-field">
                     <label for="editNombre">Nombre común:</label>
                     <input type="text" id="editNombre" name="nombre" required>
@@ -94,71 +111,45 @@
                     <textarea id="editDescripcion" name="descripcion" required></textarea>
                 </div>
                 <div class="form-field">
-                    <label for="editCantidad">Cantidad disponible:</label>
+                    <label for="editCantidad">Cantidad disponibles:</label>
                     <input type="number" id="editCantidad" name="cantidad" required>
                 </div>
                 <input type="hidden" name="id_planta" id="editIdPlanta">
-                <div class="form-field">
-                    <button type="submit" id="decision">Guardar Cambios</button>
-                    <button type="button" onclick="closeEditForm()" id="decision">Cancelar</button>
-                </div>
-                
+                <button type="submit">Guardar Cambios</button>
+                <button type="button" onclick="closeEditForm()">Cancelar</button>
             </form>
         </div>
     </div>
 
     <script>
-// Función para cargar los datos en el formulario y editar
-function editPlant(id) {
-    document.getElementById("editFormContainer").classList.add("visible");
+        // Función para abrir el formulario de edición
+        function editPlant(id) {
+            document.getElementById("editFormContainer").classList.add("visible");
 
-    fetch(`getPlanta.php?id=${id}`)
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('editIdPlanta').value = data.id_planta;
-            document.getElementById('editNombre').value = data.nombrecomun;
-            document.getElementById('editNombreMaya').value = data.nombremaya;
-            document.getElementById('editNombreCientifico').value = data.nombrecientifico;
-            document.getElementById('editTipo').value = data.tipo;
-            document.getElementById('editDescripcion').value = data.descripcion;
-            document.getElementById('editCantidad').value = data.cantidad;
-        })
-        .catch(err => alert("Error al cargar los datos: " + err.message));
-}
-
-document.getElementById('editForm').addEventListener('submit', function (event) {
-    event.preventDefault();
-
-    const formData = new FormData(this);
-
-    fetch('actualizarplanta.php', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => response.json())
-    .then(data => {
-        if (data.status === 'success') {
-            alert(data.message);
-            closeEditForm(); // Oculta el formulario
-            location.reload(); // Opcional: refresca la lista de plantas
-        } else {
-            alert('Error: ' + data.message);
+            fetch(`getPlanta.php?id=${id}`)
+                .then(response => response.json())
+                .then(data => {
+                    // Rellenar el formulario con los datos de la planta
+                    document.getElementById('editIdPlanta').value = data.id_planta;
+                    document.getElementById('editNombre').value = data.nombrecomun;
+                    document.getElementById('editNombreMaya').value = data.nombremaya;
+                    document.getElementById('editNombreCientifico').value = data.nombrecientifico;
+                    document.getElementById('editTipo').value = data.tipo;
+                    document.getElementById('editDescripcion').value = data.descripcion;
+                    document.getElementById('editCantidad').value = data.cantidad;
+                });
         }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('Ocurrió un error inesperado.');
-    });
-});
 
-function closeEditForm() {
-    document.getElementById("editFormContainer").classList.remove("visible");
-}
+        function styleEditForm(form) {
+            form.style.display = "block";
+            form.style.backgroundColor = "red";
+        }
 
+        
 
-// Función para eliminar una planta
-function deletePlant(id) {
-            if (confirm("ATENCIÓN: Se eliminarán todos los datos de esta planta. Considera que algunas personas podrían haber generado un certificado de adopción de esta planta. ¿Deseas continuar con la eliminación? ")) {
+        // Función para eliminar una planta
+        function deletePlant(id) {
+            if (confirm("¿Estás seguro de que deseas eliminar esta planta?")) {
                 fetch(`eliminarplanta.php?id=${id}`, { method: 'GET' })
                     .then(response => response.text())
                     .then(result => {
@@ -171,10 +162,6 @@ function deletePlant(id) {
                     });
             }
         }
-
-</script>
-
-
-
+    </script>
 </body>
 </html>

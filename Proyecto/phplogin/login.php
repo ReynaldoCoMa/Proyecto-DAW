@@ -19,6 +19,9 @@ if(isset($_POST['submit'])){
     $count = mysqli_num_rows($result); 
 
     if($count ==1){
+        setcookie("authenticated", "true", time() + 3600, "/"); // Cookie válida por 1 hora
+         // Configurar una cookie con el nombre de usuario, duración 1 día (86400 segundos)
+         setcookie('user', $username, time() + 86400, '/');
         header("Location:../../info_plantas/html/dashboard.php");
     }else{
         echo '<script>
