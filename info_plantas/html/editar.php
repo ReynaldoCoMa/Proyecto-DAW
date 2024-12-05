@@ -1,3 +1,13 @@
+
+<?php
+// Verificar si la cookie de autenticación está configurada
+if (!isset($_COOKIE['authenticated']) || $_COOKIE['authenticated'] !== "true") {
+    // Si no está autenticado, redirigir al login
+    header("Location: ../../Proyecto/html/acceder.php");
+    exit();
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +27,7 @@
                 <img class="logo" src="../../Proyecto/images/logoviverouady.svg">
             </div>
             <div>
-                <button class="botonsalir">Cerrar sesión</button>
+            <button class="botonsalir" onclick="window.location.href='../../Proyecto/phplogin/logout.php'">Cerrar sesión</button>
             </div>
         </div>
      </nav>

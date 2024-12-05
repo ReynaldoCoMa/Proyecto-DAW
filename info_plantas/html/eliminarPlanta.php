@@ -1,4 +1,14 @@
 <?php
+
+
+// Verificar si la cookie de autenticación está configurada
+if (!isset($_COOKIE['authenticated']) || $_COOKIE['authenticated'] !== "true") {
+    // Si no está autenticado, redirigir al login
+    header("Location: ../../Proyecto/html/acceder.php");
+    exit();
+}
+
+
 $servername = "localhost";
 $username = "root";
 $password = "";
