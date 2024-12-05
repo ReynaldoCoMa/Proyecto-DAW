@@ -108,36 +108,56 @@
     </div>
 
     <script>
-        
-        
+// Función para cargar los datos en el formulario y editar
+function editPlant(id) {
+    document.getElementById("editFormContainer").classList.add("visible");
 
-        // Función para abrir el formulario de edición
-        function editPlant(id) {
-            document.getElementById("editFormContainer").classList.add("visible");
+    fetch(`getPlanta.php?id=${id}`)
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('editIdPlanta').value = data.id_planta;
+            document.getElementById('editNombre').value = data.nombrecomun;
+            document.getElementById('editNombreMaya').value = data.nombremaya;
+            document.getElementById('editNombreCientifico').value = data.nombrecientifico;
+            document.getElementById('editTipo').value = data.tipo;
+            document.getElementById('editDescripcion').value = data.descripcion;
+            document.getElementById('editCantidad').value = data.cantidad;
+        })
+        .catch(err => alert("Error al cargar los datos: " + err.message));
+}
 
-            fetch(`getPlanta.php?id=${id}`)
-                .then(response => response.json())
-                .then(data => {
-                    // Rellenar el formulario con los datos de la planta
-                    document.getElementById('editIdPlanta').value = data.id_planta;
-                    document.getElementById('editNombre').value = data.nombrecomun;
-                    document.getElementById('editNombreMaya').value = data.nombremaya;
-                    document.getElementById('editNombreCientifico').value = data.nombrecientifico;
-                    document.getElementById('editTipo').value = data.tipo;
-                    document.getElementById('editDescripcion').value = data.descripcion;
-                    document.getElementById('editCantidad').value = data.cantidad;
-                });
+document.getElementById('editForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    const formData = new FormData(this);
+
+    fetch('actualizarplanta.php', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.status === 'success') {
+            alert(data.message);
+            closeEditForm(); // Oculta el formulario
+            location.reload(); // Opcional: refresca la lista de plantas
+        } else {
+            alert('Error: ' + data.message);
         }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Ocurrió un error inesperado.');
+    });
+});
 
-        function styleEditForm(form) {
-            form.style.display = "block";
-            form.style.backgroundColor = "red";
-        }
+function closeEditForm() {
+    document.getElementById("editFormContainer").classList.remove("visible");
+}
 
-        
 
-        // Función para eliminar una planta
-        function deletePlant(id) {
+// Función para eliminar una planta
+function deletePlant(id) {
             if (confirm("ATENCIÓN: Se eliminarán todos los datos de esta planta. Considera que algunas personas podrían haber generado un certificado de adopción de esta planta. ¿Deseas continuar con la eliminación? ")) {
                 fetch(`eliminarplanta.php?id=${id}`, { method: 'GET' })
                     .then(response => response.text())
@@ -152,10 +172,9 @@
             }
         }
 
+</script>
 
-        function closeEditForm(){
-            document.getElementById("editFormContainer").classList.remove("visible");
-        }
-    </script>
+
+
 </body>
 </html>
