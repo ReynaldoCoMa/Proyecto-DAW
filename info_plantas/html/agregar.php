@@ -25,7 +25,12 @@
     <div class="form-container">
         <div class="adoption-form"> <!--Clase únicamente para el estilo-->
             <h1>Agregar planta</h1>
-            <p>Ingresa la información de la planta para registrarla</p>
+            <p>
+                ¡Hola <?php // imprimiendo el nombre por medio de la información en la Cookie
+            if (isset($_COOKIE['user'])) {
+                echo "<span>" . htmlspecialchars($_COOKIE['user']) . "</span>";
+            }
+         ?>! Gracias por actualizar el sitio. Ingresa la información de la planta para registrarla</p>
     
             <form id="registForm" action="../server/agregarplanta.php" method="POST">
                 <!-- Campo para el nombre de la planta -->

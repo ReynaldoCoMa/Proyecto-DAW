@@ -22,9 +22,15 @@
         </div>
      </nav>
     <h1>Gestión de Plantas</h1>
-
+    <p>¡Hola
     <?php
-    $servername = "localhost:3307";
+            if (isset($_COOKIE['user'])) {
+                echo "<span>" . htmlspecialchars($_COOKIE['user']) . "</span>";
+            }
+         ?>! Elija con cuidado lo que desea hacer.
+    </p>
+    <?php
+    $servername = "localhost";
     $username = "root";
     $password = "";
     $dbname = "vivero";

@@ -22,7 +22,13 @@
      </nav>
 
      <div class="content">
-        <div class="welcome"><h1>¡Bienvenido de nuevo!</h1></div>
+        <h1>¡Bienvenido de nuevo,  <?php
+            if (isset($_COOKIE['user'])) {
+                echo "<span>" . htmlspecialchars($_COOKIE['user']) . "</span>";
+            }
+         ?>  !</h1>
+       
+    </div>
         <div>
             <button class="agregar opcion" id="btnAgregar">Agregar planta</button>
         </div>
@@ -39,7 +45,7 @@
      <script>
         // Asignar eventos de clic a cada botón
         document.getElementById("btnAgregar").addEventListener("click", function() {
-            window.location.href = "agregar.html"; // Página para agregar planta
+            window.location.href = "agregar.php"; // Página para agregar planta
         });
     
         document.getElementById("btnEditar").addEventListener("click", function() {
@@ -49,6 +55,7 @@
         document.getElementById("btnEliminar").addEventListener("click", function() {
             window.location.href = "eliminar.html"; // Página para eliminar planta
         });
+
     </script>
 </body>
 </html>
