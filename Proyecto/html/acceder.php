@@ -1,3 +1,7 @@
+<?php 
+    include("../utilsDB/db_connection.php");
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,12 +11,14 @@
     <link rel="icon" href="../images/viverologo.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <title>acceder</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Acceder</title>
+
+    <script src="../scripts/validarAcceder.js" defer></script>
 </head>
 <body>
     <nav>
@@ -23,7 +29,7 @@
                 <li class="nav-item "><a href="index.html">Inicio</a></li>
                 <li class="nav-item"><a href="catalogoPlantas.php">Plantas</a></li>
                 <li class="nav-item"><a href="adoptar.php">Adopta una planta</a></li>
-                <li class="nav-item active"><a href="acceder.html">Ingresar</a></li>
+                <li class="nav-item active"><a href="acceder.php">Ingresar</a></li>
             </ul>
         </div>
      </nav>
@@ -32,24 +38,24 @@
         <div class="adoption-form">
             <h1>Acceso administradores</h1>
             <p>Bienvenido de nuevo</p>
-            <form action="#" method="post">
+            <form action="../phplogin/login.php" method="POST" onsubmit="return validarForm()">
                 
                 <!-- Campo para el correo -->
                 <div class="form-field">
-                    <label for="email">Correo Electrónico:</label>
-                    <input type="email" id="email" name="email" required>
+                    <label>Usuario:</label>
+                    <input type="text" id="user" name="user" required>
                 </div>
 
                 <div class="form-field">
-                    <label for="password">Contraseña:</label>
-                    <input type="password" id="password" name="password">
+                    <label>Contraseña:</label>
+                    <input type="password" id="password" name="password" required>
                 </div>
 
 
 
                 <!-- Botón de envío -->
                 <div class="form-field">
-                    <input type="submit" value="Acceder">
+                    <input type="submit" name="submit" value="Acceder">
                 </div>
 
 

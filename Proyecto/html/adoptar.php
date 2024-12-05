@@ -35,7 +35,7 @@ if ($result->num_rows > 0) {
                 <li class="nav-item"><a href="index.html">Inicio</a></li>
                 <li class="nav-item"><a href="catalogoPlantas.php">Plantas</a></li>
                 <li class="nav-item active"><a href="adoptar.php">Adopta una planta</a></li>
-                <li class="nav-item"><a href="acceder.html">Ingresar</a></li>
+                <li class="nav-item"><a href="acceder.php">Ingresar</a></li>
             </ul>
         </div>
     </nav>
@@ -43,9 +43,26 @@ if ($result->num_rows > 0) {
     <!-- Título principal -->
     <div class="new-header"><h2>Plantas Disponibles para Adopción</h2></div>
 
-    <!-- Contenedor de plantas disponibles -->
-    <div id="adoption-cont" class="adoption-container">
-        <!-- Este contenedor se llenará dinámicamente con las plantas -->
+    <!-- Barra de búsqueda -->
+    <div class="search-container">
+        <input type="text" placeholder="Buscar plantas..." class="search-input">
+        <button type="submit" class="search-button">Buscar</button>
+    </div>
+
+    <!-- Contenedor dinámico de adopción de plantas -->
+    <div class="adoption-container">
+        <?php if (count($plantas) > 0): ?>
+            <!-- Iterar sobre las plantas disponibles y crear una tarjeta por cada planta -->
+            <?php foreach ($plantas as $planta): ?>
+                <div class="adoption-card">
+                    <img src="../images/prueba.jpeg"> <!-- Cambiar por la imagen de la planta -->
+                    <h2><?php echo htmlspecialchars($planta['nombrecomun']); ?></h2>
+                    <a href="formularioAdopcion.html?planta=<?php echo $planta['id_planta']; ?>"><strong>Adoptar</strong></a>
+                </div>
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p>No hay plantas disponibles para adopción en este momento.</p>
+        <?php endif; ?>
     </div>
 
     <!-- Footer -->

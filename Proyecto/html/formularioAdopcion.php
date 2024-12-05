@@ -1,3 +1,39 @@
+
+<?php
+// Incluir la conexión a la base de datos
+include_once '../utilsDB/db_connection.php';
+
+// Comprobar si el formulario ha sido enviado
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    // Obtener los datos del formulario
+    $plantaId = $_POST['planta'];
+    $nombre = $_POST['nombre'];
+    $email = $_POST['email'];
+    $direccion = $_POST['direccion'];
+
+    // Guardar los datos de la adopción en la base de datos (sin necesidad de id_adopcion)
+    $query = "INSERT INTO adopciones (id_planta, nombre_adoptador, email, direccion) 
+              VALUES ('$plantaId', '$nombre', '$email', '$direccion')";
+    if ($conn->query($query) === TRUE) {
+        // Si la adopción fue exitosa, actualizar la cantidad de la planta
+        $updateQuery = "UPDATE plantas SET cantidad = cantidad - 1 WHERE id_planta = '$plantaId'";
+        $conn->query($updateQuery);
+
+        // Redirigir a una página de agradecimiento o mostrar mensaje de éxito
+        echo "<script>
+                alert('¡Gracias por adoptar! La planta ha sido reservada para ti.');
+                window.location.href = 'adoptar.php'; //Redirigir a otra página
+              </script>";
+    } else {
+        echo "<script>
+                alert('Error al procesar la adopción: " . $conn->error . "');
+              </script>";
+    }
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -26,7 +62,7 @@
                 <li class="nav-item"><a href="index.html">Inicio</a></li>
                 <li class="nav-item"><a href="catalogoPlantas.php">Plantas</a></li>
                 <li class="nav-item active"><a href="adoptar.php">Adopta una planta</a></li>
-                <li class="nav-item"><a href="acceder.php">Ingresar</a></li>
+                <li class="nav-item"><a href="acceder.html">Ingresar</a></li>
             </ul>
         </div>
      </nav>
@@ -52,7 +88,7 @@
                 <!-- Campo para seleccionar la planta -->
                 <div class="form-field">
                     <label for="planta">Planta Seleccionada:</label>
-                    <input type="text" id="planta" name="planta" required disabled="true">
+                    <input type="text" id="planta" name="planta" required readonly>
                 </div>
 
                 <!-- Campo para la dirección -->
