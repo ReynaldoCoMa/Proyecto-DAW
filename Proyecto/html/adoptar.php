@@ -36,7 +36,7 @@ if ($result->num_rows > 0) {
                 <li class="nav-item"><a href="index.html">Inicio</a></li>
                 <li class="nav-item"><a href="catalogoPlantas.php">Plantas</a></li>
                 <li class="nav-item active"><a href="adoptar.php">Adopta una planta</a></li>
-                <li class="nav-item"><a href="acceder.html">Ingresar</a></li>
+                <li class="nav-item"><a href="acceder.php">Ingresar</a></li>
             </ul>
         </div>
     </nav>
@@ -58,7 +58,7 @@ if ($result->num_rows > 0) {
                 <div class="adoption-card">
                     <img src="../images/prueba.jpeg"> <!-- Cambiar por la imagen de la planta -->
                     <h2><?php echo htmlspecialchars($planta['nombrecomun']); ?></h2>
-                    <a href="formularioAdopcion.php?planta=<?php echo $planta['id_planta']; ?>"><strong>Adoptar</strong></a>
+                    <a href="formularioAdopcion.html?planta=<?php echo $planta['id_planta']; ?>"><strong>Adoptar</strong></a>
                 </div>
             <?php endforeach; ?>
         <?php else: ?>
