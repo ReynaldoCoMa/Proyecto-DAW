@@ -66,7 +66,7 @@ if ($apiResponse) {
                 <li class="nav-item"><a href="index.html">Inicio</a></li>
                 <li class="nav-item active"><a href="catalogoPlantas.php">Plantas</a></li>
                 <li class="nav-item"><a href="adoptar.php">Adopta una planta</a></li>
-                <li class="nav-item"><a href="acceder.html">Ingresar</a></li>
+                <li class="nav-item"><a href="acceder.php">Ingresar</a></li>
             </ul>
         </div>
      </nav>

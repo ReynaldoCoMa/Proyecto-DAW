@@ -23,7 +23,7 @@
                 <li class="nav-item active"><a href="index.html">Inicio</a></li>
                 <li class="nav-item"><a href="catalogoPlantas.php">Plantas</a></li>
                 <li class="nav-item"><a href="adoptar.php">Adopta una planta</a></li>
-                <li class="nav-item"><a href="acceder.html">Ingresar</a></li>
+                <li class="nav-item"><a href="acceder.php">Ingresar</a></li>
             </ul>
         </div>
      </nav>
@@ -41,7 +41,7 @@
                 <select name="id_planta" id="planta_generar" required>
                     <?php
                     // Consulta para obtener plantas sin QR
-                    $conn = new mysqli('localhost:3308', 'root', '', 'vivero');
+                    $conn = new mysqli('localhost:3308', 'root', '', 'database1');
                     if ($conn->connect_error) {
                         die("Conexión fallida: " . $conn->connect_error);
                     }

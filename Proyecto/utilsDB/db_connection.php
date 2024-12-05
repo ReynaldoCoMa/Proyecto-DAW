@@ -1,5 +1,5 @@
 <?php
-$servername = "localhost:3307";//"localhost:3307";
+$servername = "localhost:3308";//"localhost:3307";
 $username = "root"; // Cambia esto si tu usuario no es root
 $password = ""; // Cambia esto si tienes una contraseña
 $dbname = "database1"; // Nombre de tu base de datos
