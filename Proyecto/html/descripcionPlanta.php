@@ -22,6 +22,22 @@ if ($id_planta > 0) {
     echo '<p>ID no válido.</p>';
     exit;
 }
+
+// Recuperar la imagen de la API usando cURL
+$apiKey = 'sk-PWkK6750e44c521677889';
+$apiUrl = "https://perenual.com/api/species-list?key=$apiKey&q=" . urlencode($planta['nombrecientifico']);
+
+$imageUrl = '../images/default.jpg'; // Imagen por defecto
+$apiResponse = file_get_contents($apiUrl);
+
+
+
+if ($apiResponse) {
+    $data = json_decode($apiResponse, true);
+    if (isset($data['data'][0]['default_image']['regular_url'])) {
+        $imageUrl = $data['data'][0]['default_image']['regular_url'];
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -63,17 +79,9 @@ if ($id_planta > 0) {
             <p><strong>Descripción:</strong> <?php echo nl2br(htmlspecialchars($planta['descripcion'])); ?></p>
         </div>
 
-        <!-- Galería de imágenes (aquí puedes agregar imágenes relacionadas con la planta) -->
+        <!-- Imagen de la planta -->
         <div class="plant-image">
-            <div class="image-slider" id="image-slider">
-                <img src="../images/prueba.jpeg" alt="Planta Ejemplo 1" class="active">
-                <img src="../images/prueba2.jpeg" alt="Planta Ejemplo 2">
-                <img src="../images/prueba3.jpeg" alt="Planta Ejemplo 3">
-                <div class="slider-controls">
-                    <button onclick="prevImage()">&#10094;</button>
-                    <button onclick="nextImage()">&#10095;</button>
-                </div>
-            </div>
+            <img src="<?php echo htmlspecialchars($imageUrl); ?>" alt="Imagen de <?php echo htmlspecialchars($planta['nombrecomun']); ?>" class="plant-img">
         </div>
     </div>
 
@@ -98,6 +106,5 @@ if ($id_planta > 0) {
     </footer>
 
     <script src="../scripts/menu.js"></script>
-    <script src="../scripts/carruselImagenes.js"></script>
 </body>
 </html>
