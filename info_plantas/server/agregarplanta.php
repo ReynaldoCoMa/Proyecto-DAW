@@ -13,39 +13,31 @@ if ($conn->connect_error) {
 }
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Recibir datos del formulario
-    $nombre = $_POST['nombre'];
-    $nombremaya = $_POST['nombremaya'];
-    $nombrecientifico = $_POST['nombrecientifico'];
-    $tipo = $_POST['tipo'];
-    $descripcion = $_POST['descripcion'];
-    $cantidad = $_POST['cantidad'];
-    $ubicaciones = $_POST['ubicacion']; // Array de ubicaciones (checkboxes seleccionados)
+    $nombre = htmlspecialchars($_POST['nombre'], ENT_QUOTES, 'UTF-8');
+    $nombremaya = htmlspecialchars($_POST['nombremaya'], ENT_QUOTES, 'UTF-8');
+    $nombrecientifico = htmlspecialchars($_POST['nombrecientifico'], ENT_QUOTES, 'UTF-8');
+    $tipo = htmlspecialchars($_POST['tipo'], ENT_QUOTES, 'UTF-8');
+    $descripcion = htmlspecialchars($_POST['descripcion'], ENT_QUOTES, 'UTF-8');
+    $cantidad = intval($_POST['cantidad']);
+    $ubicaciones = $_POST['ubicacion'];
 
-    // Insertar datos en la tabla `plantas`
-    $sql = "INSERT INTO plantas (nombrecomun, nombremaya, nombrecientifico, tipo, descripcion, cantidad) 
-            VALUES (?, ?, ?, ?, ?, ?)";
-    
+    $sql = "INSERT INTO plantas (nombrecomun, nombremaya, nombrecientifico, tipo, descripcion, cantidad) VALUES (?, ?, ?, ?, ?, ?)";
     $stmt = $conn->prepare($sql);
     $stmt->bind_param("sssssi", $nombre, $nombremaya, $nombrecientifico, $tipo, $descripcion, $cantidad);
 
     if ($stmt->execute()) {
-        // Obtener el último ID insertado
         $id_planta = $conn->insert_id;
-
-        // Insertar datos en la tabla `estado_planta`
         $sql_ubicacion = "INSERT INTO estado_planta (id_planta, num_estado, estado) VALUES (?, ?, ?)";
         $stmt_ubicacion = $conn->prepare($sql_ubicacion);
 
-        foreach ($ubicaciones as $estado) {
-            // Mapeo de estados a sus respectivos números
-            $map_estado = [
-                "Yucatán" => 1,
-                "Campeche" => 2,
-                "Quintana Roo" => 3
-            ];
+        $map_estado = [
+            "Yucatán" => 1,
+            "Campeche" => 2,
+            "Quintana Roo" => 3
+        ];
 
-            $num_estado = $map_estado[$estado]; // Obtener el número del estado
+        foreach ($ubicaciones as $estado) {
+            $num_estado = $map_estado[$estado];
             $stmt_ubicacion->bind_param("iis", $id_planta, $num_estado, $estado);
             $stmt_ubicacion->execute();
         }
@@ -55,7 +47,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "Error al registrar la planta: " . $stmt->error;
     }
 
-    // Cerrar conexiones
     $stmt->close();
     $conn->close();
 }
